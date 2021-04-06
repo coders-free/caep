@@ -1,0 +1,27 @@
+.form-group{
+    @apply mb-6;
+}
+
+.form-label{
+    @apply block font-medium text-sm text-gray-700;
+}
+
+.form-control, .form-select{
+    @apply border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm;
+}
+
+.form-control-2{
+    @apply py-2 px-4 text-sm text-gray-700 placeholder-gray-600 border rounded-lg;
+}
+
+.is-invalid{
+    @apply border-red-500 focus:border-red-500;
+}
+
+.form-text{
+    @apply text-gray-600 text-xs italic;
+}
+
+.invalid-feedback{
+    @apply text-red-500 text-xs italic;
+}
