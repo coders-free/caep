@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Illuminate\Database\Eloquent\Builder;
 
-
 class CreditoImponente extends Component
 {
     public $search;
