@@ -14,6 +14,12 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('welcome') }}" :active="request()->routeIs('welcome')">
+                        Estado de créditos
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('solicitudes.index') }}" :active="request()->routeIs('solicitudes.index')">
                         Solicitudes
                     </x-jet-nav-link>
                 </div>

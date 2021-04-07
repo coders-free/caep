@@ -15,6 +15,10 @@ class Imponente extends Model
         return $this->belongsTo(User::class);
     }
 
+    //Relacion uno a muhos
+    public function creditos(){
+        return $this->hasMany(Credito::class);
+    }
 
     //Relacion uno a muchos inverso
 

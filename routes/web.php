@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\SolicitudesComponent;
 use App\Http\Controllers\ImponenteController;
 use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\AvalController;
@@ -9,8 +9,13 @@ use App\Http\Controllers\AvalController;
 use App\Http\Livewire\AvalIndex;
 use App\Models\Aval;
 
-Route::get('/', HomeComponent::class)->name('welcome');
+use App\Http\Livewire\CreditoImponente;
 
+Route::get('/', CreditoImponente::class)->name('welcome');
+
+Route::get('creditos', CreditoImponente::class);
+
+Route::get('solicitudes', SolicitudesComponent::class)->name('solicitudes.index');
 Route::get('solicitudes/create', [SolicitudController::class, 'create'])->name('solicitudes.create');
 Route::post('solicitudes', [SolicitudController::class, 'store'])->name('solicitudes.store');
 

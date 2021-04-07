@@ -1,7 +1,7 @@
 <div>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Saldo del imponente: {{moneda_chilena(auth()->user()->imponente->fondos)}}
+            Mis solicitudes
         </h2>
     </x-slot>
 
@@ -13,13 +13,9 @@
         <x-table-responsive>
 
             <div class="px-6 py-4 flex items-center">
-                {{-- <input wire:model="search" class="form-control flex-1" placeholder="Busque el prestamo que está buscando ..."> --}}
 
                 <x-jet-input type="text" class="mt-1 block flex-1" wire:model="search" placeholder="Escriba algo" />
                 
-                {{-- <a href="{{route('solicitudes.create')}}" class="btn btn-primary ml-2">
-                    Nueva solicitud
-                <a> --}}
 
                 @livewire('solicitud-create')
                 

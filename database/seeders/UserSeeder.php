@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Aval;
 use App\Models\Bancario;
+use App\Models\Credito;
 use App\Models\DetallePrestamo;
 use App\Models\Identificacion;
 use App\Models\Imponente;
@@ -28,6 +29,11 @@ class UserSeeder extends Seeder
             Imponente::factory(1)->create([
                 'user_id' => $user->id
             ])->each(function(Imponente $imponente){
+
+
+                Credito::factory(15)->create([
+                    'imponente_id' => $imponente->id
+                ]);
 
                 //Avales
                 Aval::factory(2)->create([
