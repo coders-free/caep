@@ -1,6 +1,6 @@
 <x-ejecutivo-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-white leading-tight">
             Revisión de solicitud
         </h2>
     </x-slot>
@@ -46,25 +46,28 @@
                 </div>
             </section>
 
-            {{-- Información del aval --}}
-            <section>
-                <h1 class="text-center text-2xl font-medium text-gray-700 mb-4">Información del aval</h1>
-            
+            @if ((Auth::user()->roles()->first()->name == 'ejecutivo'))
+                {{-- Información del aval --}}
+                <section>
+                    <h1 class="text-center text-2xl font-medium text-gray-700 mb-4">Información del aval</h1>
+                
 
-                <div class="mb-10">
-                    @livewire('aval-edit', ['aval' => $solicitud->aval])
-                </div>
+                    <div class="mb-10">
+                        @livewire('aval-edit', ['aval' => $solicitud->aval])
+                    </div>
 
-                <div class="mb-10">
-                    @livewire('edit-identificacion', ['identificacion' => $solicitud->aval->identificacion])
-                </div>
+                    <div class="mb-10">
+                        @livewire('edit-identificacion', ['identificacion' => $solicitud->aval->identificacion])
+                    </div>
 
-                <div class="mb-10">
-                    @livewire('edit-trabajo', ['trabajo' => $solicitud->aval->trabajo])
-                    <x-jet-section-border />
-                </div>
+                    <div class="mb-10">
+                        @livewire('edit-trabajo', ['trabajo' => $solicitud->aval->trabajo])
+                        <x-jet-section-border />
+                    </div>
 
-            </section>
+                </section>                
+            @endif
+
 
             {{-- Subida de archivos --}}
             <section>

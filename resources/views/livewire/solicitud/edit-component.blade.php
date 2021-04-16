@@ -2,11 +2,11 @@
 
     <x-jet-form-section submit="update">
         <x-slot name="title">
-            Información de solicitud
+            <div class="text-center"><i class="fa fa-info-circle fa-5x" style="color:#b19d78" aria-hidden="true"></i></div>
         </x-slot>
 
         <x-slot name="description">
-            Aquí puedes modificar la información de la solicitud
+            <div class="text-center">Aquí puedes modificar la información de la solicitud</div>
         </x-slot>
 
         <x-slot name="form">

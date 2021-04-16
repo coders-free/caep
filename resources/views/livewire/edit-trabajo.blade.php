@@ -1,11 +1,11 @@
 <div>
     <x-jet-form-section submit="update">
         <x-slot name="title">
-            Datos de trabajo
+            <div class="text-center"><i class="fa fa-briefcase fa-5x" style="color:#b19d78" aria-hidden="true"></i></div>
         </x-slot>
 
         <x-slot name="description">
-            Complete esta información sobre tu lugar de trabajo
+            <div class="text-center">Complete esta información sobre tu lugar de trabajo</div>
         </x-slot>
 
         <x-slot name="form">

@@ -1,6 +1,6 @@
 <div>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-white leading-tight">
             Mis solicitudes
         </h2>
     </x-slot>
@@ -24,19 +24,19 @@
             @if ($this->solicitudes->count())
 
                 <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+                    <thead class="bg-gray-50" style="background-color: #B19D78">
                         <tr>
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Tipo de solicitud
                             </th>
 
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Monto solicitado
                             </th>
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Fecha cierre
                             </th>
                             {{-- <th scope="col"
@@ -44,7 +44,7 @@
                                 N° cuotas
                             </th> --}}
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Estado
                             </th>
                             <th scope="col" class="relative px-6 py-3">

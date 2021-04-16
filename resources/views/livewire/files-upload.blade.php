@@ -1,11 +1,11 @@
 <div>
     <x-jet-form-section submit="save">
         <x-slot name="title">
-            Subir documentos
+            <div class="text-center"><i class="fa fa-money fa-5x" style="color:#b19d78" aria-hidden="true">Up</i></div>
         </x-slot>
 
         <x-slot name="description">
-            En esta sección podrá subir documentos que quiera anexar a su solicitud
+            <div class="text-center">En esta sección podrá subir documentos que quiera anexar a su solicitud</div>
         </x-slot>
 
         <x-slot name="form">
@@ -15,7 +15,8 @@
 
                 <input class="w-full" type="file" wire:model="files" multiple>
 
-                <p class="text-xs mt-2">*Luego de seleccionar los archivos, debes hacer click al botón guardar</p>
+                <p class="text-lg text-red-600 mt-2">NOTA: en esta sección debe adjuntar: fotocopia Carnet de Identidad por ambos lados, de usted y Aval, liquidaciones de sueldos de ambos. Si usted es Carabinero debe adjuntar su TIPCAR</p>
+                <p class="text-xs text-red-600 mt-2">*Luego de seleccionar los archivos, debes hacer click al botón guardar</p>
 
                 <x-jet-input-error for="files.*" />
 

@@ -1,6 +1,6 @@
 <div>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-white leading-tight">
             Solicitudes
         </h2>
     </x-slot>
@@ -10,54 +10,34 @@
 
 
         <div class="mb-12">
+            <div class="md:grid md:grid-cols-1 mb-12 px-4 py-5 sm:px-6 mt-5 md:mt-0 md:col-span-2 bg-white shadow overflow-hidden sm:rounded-lg">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                    Usted pertenece a la agencia <span class="capitalize">{{strtolower(auth()->user()->ejecutivo->agencia->name)}}</span>
+                </h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Aquí encontrarás un resumen de las solicitudes
+                </p>
+            </div>
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        
-                        <div class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded relative" role="alert">
-                            <strong class="font-bold">¡Información!</strong>
-                            <span class="block sm:inline">Esta Información se actualizará cada mes.</span>
-                        </div>
+                        <div class="text-center"><i class="fa fa-list fa-5x" style="color:#b19d78" aria-hidden="true"></i></div>
+                        <div class="text-center text-xl">{{$solicitudes->total()}}</div>
+                        <div class="text-center text-xl">pendientes</div>
                     </div>
                 </div>
-
-                <div class="mt-5 md:mt-0 md:col-span-2 bg-white shadow overflow-hidden sm:rounded-lg">
-                    <div class="px-4 py-5 sm:px-6">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">
-                            Agencia <span class="capitalize">{{strtolower(auth()->user()->ejecutivo->agencia->name)}}</span>
-                        </h3>
-                        <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                            Aquí encontrarás un resumen de las solicitudes
-                        </p>
+                <div class="md:col-span-1">
+                    <div class="px-4 sm:px-0">
+                        <div class="text-center"><i class="fa fa-thumbs-up fa-5x" style="color:#b19d78" aria-hidden="true"></i></div>
+                        <div class="text-center text-xl">{{$aprobados}}</div>
+                        <div class="text-center text-xl">aprobadas</div>
                     </div>
-                    <div class="border-t border-gray-200">
-                        <dl>
-                            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                <dt class="text-sm font-medium text-gray-500">
-                                    Solicitudes pendientes
-                                </dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {{$solicitudes->total()}} solicitudes
-                                </dd>
-                            </div>
-                            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                <dt class="text-sm font-medium text-gray-500">
-                                    Solicitudes aprobadas
-                                </dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {{$aprobados}} solicitudes
-                                </dd>
-                            </div>
-                            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                <dt class="text-sm font-medium text-gray-500">
-                                    Solicitudes rechazados
-                                </dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {{ $rechazados }} solicitudes
-                                </dd>
-                            </div>
-
-                        </dl>
+                </div>
+                <div class="md:col-span-1">
+                    <div class="px-4 sm:px-0">
+                        <div class="text-center"><i class="fa fa-times fa-5x" style="color:#b19d78" aria-hidden="true"></i></div>
+                        <div class="text-center text-xl">{{$rechazados}}</div>
+                        <div class="text-center text-xl">rechazadas</div>
                     </div>
                 </div>
 
@@ -78,32 +58,32 @@
             @if ($solicitudes->count())
 
                 <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+                    <thead class="bg-gray-50" style="background-color: #b19d78">
                         <tr>
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Imponente
                             </th>
 
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Tipo Prestamo
                             </th>
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Monto solicitado
                             </th>
 
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Número de cuotas
                             </th>
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Comunas
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Comuna
                             </th>
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Estado
                             </th>
                             <th scope="col" class="relative px-6 py-3">
@@ -131,7 +111,7 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-900">
-                                        $ {{$solicitud->monto}}
+                                        {{moneda_chilena($solicitud->monto)}}
                                     </div>
                                 </td>
 

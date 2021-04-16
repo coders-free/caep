@@ -1,12 +1,22 @@
 <div>
     <x-jet-form-section submit="update">
-
+        
+        @if (Auth::user()->roles()->first()->name == 'imponente')
+            <x-slot name="title">
+                <div class="text-center"></div>
+            </x-slot>  
+            <x-slot name="description">
+                <div class="text-center"></div>
+            </x-slot>
+            <x-slot name="form">
+            </x-slot>
+        @else
         <x-slot name="title">
-            Datos del aval
+            <div class="text-center">Datos del aval</div>
         </x-slot>
 
         <x-slot name="description">
-            Nombre y rut del imponente
+            <div class="text-center">Nombre y rut del Aval</div>
         </x-slot>
 
         <x-slot name="form">
@@ -34,6 +44,8 @@
             </x-jet-button>
 
         </x-slot>
+            
+        @endif
 
     </x-jet-form-section>
 </div>

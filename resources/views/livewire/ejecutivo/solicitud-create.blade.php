@@ -1,6 +1,6 @@
 <div>
     <x-jet-danger-button class="ml-4" wire:click="$set('open', true)">
-        Crear solicitud
+        Crear solicitud Manual
     </x-jet-danger-button>
 
     <x-jet-dialog-modal wire:model="open">

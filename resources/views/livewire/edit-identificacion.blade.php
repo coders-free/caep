@@ -2,11 +2,11 @@
 
     <x-jet-form-section submit="update">
         <x-slot name="title">
-            Identificación
+            <div class="text-center"><i class="fa fa-id-card fa-5x" style="color:#b19d78" aria-hidden="true"></i></div>
         </x-slot>
 
         <x-slot name="description">
-            Complete la información básica del usuario
+            <div class="text-center">Complete la información básica del usuario</div>
         </x-slot>
 
         <x-slot name="form">

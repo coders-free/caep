@@ -1,7 +1,8 @@
 <div>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Saldos: {{moneda_chilena(auth()->user()->imponente->fondos)}}
+        <h2 class="font-semibold text-xl text-white leading-tight">
+            <i class="fa fa-university" aria-hidden="true"></i>
+            Saldo: {{moneda_chilena(auth()->user()->imponente->fondos)}}
         </h2>
     </x-slot>
     
@@ -16,36 +17,36 @@
             @if ($creditos->count())
 
                 <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+                    <thead class="bg-gray-50" style="background-color: #B19D78">
                         <tr>
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Tipo de prestamo
                             </th>
 
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Fecha cierre
                             </th>
 
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Monto prestado
                             </th>
                             
                            
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Numero de cuotas
                             </th>
 
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Monto de cuota
                             </th>
 
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Fecha de vencimiento
                             </th>
                         </tr>
@@ -69,7 +70,7 @@
 
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-600">
-                                        $ {{$credito->monto_prestamo}}
+                                        {{moneda_chilena($credito->monto_prestamo)}}
                                     </div>
                                 </td>
 
@@ -81,7 +82,7 @@
 
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-600">
-                                        $ {{$credito->monto_cuota}}
+                                        {{moneda_chilena(round($credito->monto_cuota))}}
                                     </div>
                                 </td>
 

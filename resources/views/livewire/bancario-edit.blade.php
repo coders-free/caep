@@ -2,11 +2,11 @@
 
     <x-jet-form-section submit="update">
         <x-slot name="title">
-            Datos bancarios
+            <div class="text-center"><i class="fa fa-money fa-5x" style="color:#b19d78" aria-hidden="true">$</i></div>
         </x-slot>
 
         <x-slot name="description">
-            Por favor complete sus datos bancarios
+            <div class="text-center">Por favor complete sus datos bancarios</div>
         </x-slot>
 
         <x-slot name="form">
