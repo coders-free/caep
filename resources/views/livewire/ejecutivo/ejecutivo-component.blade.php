@@ -55,123 +55,138 @@
 
             </div>
 
+            
+
             @if ($solicitudes->count())
+                <div class="relative">
 
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50" style="background-color: #b19d78">
-                        <tr>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                Imponente
-                            </th>
+                    <div wire:loading.flex 
+                        wire:target="search"
+                        class="absolute inset-0 bg-black bg-opacity-10 justify-center items-center">
+                        <div class="rounded animate-spin ease duration-300 w-8 h-8 border-2 border-indigo-500"></div>
+                    </div>
+                    
 
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                Tipo Prestamo
-                            </th>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                Monto solicitado
-                            </th>
-
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                Número de cuotas
-                            </th>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                Comuna
-                            </th>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                Estado
-                            </th>
-                            <th scope="col" class="relative px-6 py-3">
-                                <span class="sr-only">Edit</span>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-
-                        @foreach ($solicitudes as $solicitud)
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50" style="background-color: #b19d78">
                             <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                    Imponente
+                                </th>
 
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-600 font-bold">
-                                        {{ $solicitud->imponente->user->name }}
-                                    </div>
-                                </td>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                    Tipo Prestamo
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                    Monto solicitado
+                                </th>
 
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="text-sm font-medium text-gray-900">
-                                            {{ $solicitud->prestamo->name }}
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">
-                                        {{moneda_chilena($solicitud->monto)}}
-                                    </div>
-                                </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">
-                                        {{$solicitud->detalle_prestamo->cuotas}} cuotas
-                                    </div>
-                                </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{ $solicitud->identificacion->comuna->name }}
-                                </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap">
-
-                                    @switch($solicitud->status)
-                                        @case(1)
-
-                                        <span
-                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                            Borrador
-                                        </span>
-
-                                        @break
-                                        @case(2)
-
-                                        <span
-                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                            Revisión
-                                        </span>
-
-                                        @break
-
-                                        @case(3)
-
-                                        <span
-                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            Aprobado
-                                        </span>
-
-                                        @break
-
-                                        @default
-
-                                    @endswitch
-
-
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-
-                                    <a href="{{ route('ejecutivo.solicitudes.show', $solicitud) }}"
-                                        class="btn btn-primary">Detalle</a>
-
-                                </td>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                    Número de cuotas
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                    Comuna
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                    Estado
+                                </th>
+                                <th scope="col" class="relative px-6 py-3">
+                                    <span class="sr-only">Edit</span>
+                                </th>
                             </tr>
-                        @endforeach
+                        </thead>
 
-                        <!-- More items... -->
-                    </tbody>
-                </table>
+                        <tbody class="bg-white divide-y divide-gray-200">
+
+
+                            @foreach ($solicitudes as $solicitud)
+                                <tr>
+
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-600 font-bold">
+                                            {{ $solicitud->imponente->user->name }}
+                                        </div>
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="text-sm font-medium text-gray-900">
+                                                {{ $solicitud->prestamo->name }}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">
+                                            {{moneda_chilena($solicitud->monto)}}
+                                        </div>
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">
+                                            {{$solicitud->detalle_prestamo->cuotas}} cuotas
+                                        </div>
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $solicitud->identificacion->comuna->name }}
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap">
+
+                                        @switch($solicitud->status)
+                                            @case(1)
+
+                                            <span
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                Borrador
+                                            </span>
+
+                                            @break
+                                            @case(2)
+
+                                            <span
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                Revisión
+                                            </span>
+
+                                            @break
+
+                                            @case(3)
+
+                                            <span
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                Aprobado
+                                            </span>
+
+                                            @break
+
+                                            @default
+
+                                        @endswitch
+
+
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+
+                                        <a href="{{ route('ejecutivo.solicitudes.show', $solicitud) }}"
+                                            class="btn btn-primary">Detalle</a>
+
+                                    </td>
+                                </tr>
+                            @endforeach
+
+                            <!-- More items... -->
+                        </tbody>
+                    </table>
+
+                    
+                </div>
 
                 @if ($solicitudes->hasPages())
                     <div class="px-6 py-4">

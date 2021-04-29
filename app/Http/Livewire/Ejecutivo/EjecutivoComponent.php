@@ -7,19 +7,36 @@ use Illuminate\Database\Eloquent\Builder;
 
 use App\Models\Solicitud;
 
+use Livewire\WithPagination;
+
 class EjecutivoComponent extends Component
 {
 
+    use WithPagination;
+
     public $search;
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function render()
     {
 
-        $solicitudes = Solicitud::whereHas('prestamo', function (Builder $query) {
-            $query->where('name', 'like', '%' . $this->search . '%');
-        })->whereHas('identificacion.comuna.agencia.ejecutivo', function (Builder $query) {
-            $query->where('user_id', auth()->user()->id);
-        })->where('status', 2)->latest('id')->paginate(10);
+        $solicitudes = Solicitud::where(function($query){
+            $query->whereHas('identificacion.comuna.agencia.ejecutivo', function (Builder $query) {
+                $query->where('user_id', auth()->user()->id);
+            })->where('status', 2);
+        })->where(function($query){
+            $query->whereHas('prestamo', function (Builder $query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
+            })->orWhereHas('imponente.user', function (Builder $query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
+            })->orWhereHas('identificacion.comuna', function (Builder $query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
+            });
+        })->latest('id')->paginate(10);
 
         $aprobados = auth()->user()
             ->solicitudes()

@@ -9,6 +9,8 @@ class Prestamo extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+
     public function solicitudes(){
         return $this->hasMany(Solicitud::class);
     }

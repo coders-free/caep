@@ -4,11 +4,21 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
+use Livewire\WithPagination;
+
 class AvalIndex extends Component
 {
+
+    use WithPagination;
+
     public $imponente, $search;
 
     protected $listeners = ['render'];
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function mount(){
         $this->imponente = auth()->user()->imponente;
