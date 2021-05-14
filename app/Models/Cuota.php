@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Cuota extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['value'];
+
+    //Relacion muchos a muchos
+    public function prestamos(){
+        return $this->belongsToMany(Prestamo::class);
+    }
 }

@@ -52,5 +52,7 @@ class EditTrabajo extends Component
         }
 
         $this->trabajo->save();
+
+        $this->emit('saved');
     }
 }

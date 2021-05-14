@@ -11,11 +11,18 @@ class Prestamo extends Model
 
     protected $fillable = ['name'];
 
+    //Relacion uno a muchos
     public function solicitudes(){
         return $this->hasMany(Solicitud::class);
     }
 
-    public function setNameAttribute($value){
-        $this->attributes['name'] = strtolower($value);
+
+    //Relacion muchos a muchos
+    public function cuotas(){
+        return $this->belongsToMany(Cuota::class);
     }
+
+    /* public function setNameAttribute($value){
+        $this->attributes['name'] = strtolower($value);
+    } */
 }

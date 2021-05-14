@@ -24,7 +24,7 @@ class AvalEdit extends Component
 
         $this->aval->save();
 
-        $this->emitSelf('saved');
+        $this->emit('saved');
     }
 
     public function render()

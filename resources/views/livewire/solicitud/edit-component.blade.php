@@ -30,20 +30,15 @@
                     <div>
 
                         <x-jet-label value="Número de cuotas:" />
-                        @if ($detalle_prestamo->cuotas == 60)
 
-                            <x-jet-input value="60 cuotas" class="w-full bg-gray-100" type="text" disabled />
-                        @else
-
-                            <select wire:model="detalle_prestamo.cuotas" name="cuotas" id="cuotas"
+                        <select wire:model="detalle_prestamo.cuotas" name="cuotas" id="cuotas"
                                 class="form-control w-full">
-                                <option value="12">12 cuotas</option>
-                                <option value="18">18 cuotas</option>
-                                <option value="24">24 cuotas</option>
-                                <option value="36">36 cuotas</option>
-                            </select>
-
-                        @endif
+                                @foreach ($cuotas as $cuota)
+                                
+                                    <option value="{{$cuota->value}}">{{$cuota->value}} cuotas</option>
+                                    
+                                @endforeach
+                        </select>
 
                         <x-jet-input-error for="detalle_prestamo.cuotas" />
                         
@@ -81,7 +76,7 @@
 
             {{-- <button class="btn btn-primary" type="submit">Crear nueva solicitud</button> --}}
             <x-jet-action-message class="mr-3" on="saved">
-                Solicitud actualizada
+                Información actualizada
             </x-jet-action-message>
 
             <x-jet-button>

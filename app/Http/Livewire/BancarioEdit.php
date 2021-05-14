@@ -35,5 +35,7 @@ class BancarioEdit extends Component
 
     public function update(){
         $this->bancario->save();
+
+        $this->emit('saved');
     }
 }

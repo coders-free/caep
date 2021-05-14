@@ -38,6 +38,8 @@ class FilesUpload extends Component
 
         $this->emitTo('files-download', 'render');
 
+        $this->emit('saved');
+
     }
 
     public function delete(File $file){

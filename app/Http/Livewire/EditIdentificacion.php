@@ -61,5 +61,7 @@ class EditIdentificacion extends Component
             $this->identificacion->fecha_nacimiento = Carbon::createFromFormat('d/m/Y', $this->fecha_nacimiento);
         }
         $this->identificacion->save();
+
+        $this->emit('saved');
     }
 }

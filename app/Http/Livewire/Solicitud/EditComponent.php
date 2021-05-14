@@ -8,7 +8,7 @@ use Livewire\Component;
 class EditComponent extends Component
 {
 
-    public $solicitud, $hipotecario, $detalle_prestamo, $prestamos;
+    public $solicitud, $hipotecario, $detalle_prestamo, $prestamos, $cuotas;
 
     protected $rules = [
         'solicitud.monto'         => 'required',
@@ -16,22 +16,27 @@ class EditComponent extends Component
         'solicitud.prestamo_id'   => 'required',
     ];
 
-    public function mount($solicitud){
-        $this->solicitud = $solicitud;
-        $this->detalle_prestamo = $solicitud->detalle_prestamo;
+    public function mount(){
+
+        $this->cuotas = $this->solicitud->prestamo->cuotas;
+
+        $this->detalle_prestamo = $this->solicitud->detalle_prestamo;
 
         $this->hipotecario = Prestamo::where('name', 'PRESTAMO HIPOTECARIO')->first();
 
-        $this->prestamos = Prestamo::where('id', '>', 1)->get();
+        $this->prestamos = Prestamo::where('id', '>', 1)
+                                    ->where('active', true)
+                                    ->get();
     }
 
-    public function updatedSolicitudPrestamoId()
+    public function updatedSolicitudPrestamoId($value)
     {
-        if ($this->solicitud->prestamo_id == $this->hipotecario->id) {
-            $this->detalle_prestamo->cuotas = 60;
-        }else{
-            $this->detalle_prestamo->cuotas = 12;
-        }
+
+        $prestamo = Prestamo::find($value);
+
+        $this->cuotas = $prestamo->cuotas;
+
+        $this->detalle_prestamo->cuotas = $this->cuotas->first()->value;
 
     }
 
@@ -50,6 +55,7 @@ class EditComponent extends Component
         $this->validate();
 
         $this->solicitud->save();
+        
         $this->detalle_prestamo->save();
 
         $this->emit('saved');

@@ -61,7 +61,7 @@
     
         <x-slot name="actions">
             <x-jet-action-message class="mr-3" on="saved">
-                {{ __('Saved.') }}
+                Información actualizada
             </x-jet-action-message>
     
             <x-jet-button>
