@@ -9,6 +9,8 @@ class Ejecutivo extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['user_id', 'agencia_id'];
+
     //Relacion uno a uno inversa
 
     public function user(){
