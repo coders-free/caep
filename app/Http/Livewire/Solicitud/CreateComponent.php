@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire\Solicitud;
 
+use App\Mail\SolicitudCreate;
 use App\Models\Aval;
 use App\Models\Prestamo;
 use App\Models\Solicitud;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class CreateComponent extends Component
@@ -57,6 +59,11 @@ class CreateComponent extends Component
 
         $sol_aval->identificacion()->create($aval->identificacion->toArray());
         $sol_aval->trabajo()->create($aval->trabajo->toArray());
+
+        if (auth()->user()->email) {
+            Mail::to(auth()->user()->email)->send(new SolicitudCreate);
+        }
+
 
         return redirect()->route('solicitudes.edit', $solicitud);
     }

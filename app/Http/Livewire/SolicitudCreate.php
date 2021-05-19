@@ -6,6 +6,9 @@ use App\Models\Prestamo;
 use App\Models\Solicitud;
 use Livewire\Component;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SolicitudCreate as SolicitudMailable;
+
 class SolicitudCreate extends Component
 {
 
@@ -56,6 +59,10 @@ class SolicitudCreate extends Component
                 'imponente_id' => $this->imponente->id,
                 'prestamo_id'  => 1
             ]);
+        }
+
+        if (auth()->user()->email) {
+            Mail::to(auth()->user()->email)->send(new SolicitudMailable);
         }
 
         return redirect()->route('solicitudes.edit', $solicitud);
