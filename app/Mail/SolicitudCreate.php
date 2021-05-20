@@ -29,7 +29,6 @@ class SolicitudCreate extends Mailable
     public function build()
     {
         return $this->view('email.solicitud-create')
-                    ->attach(public_path('Documentos/Pagare.pdf'))
                     ->subject('Solicitud creada');
     }
 }

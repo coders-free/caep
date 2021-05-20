@@ -31,7 +31,17 @@ class StatusSolicitudMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('email.status-solicitud')
+        if ($this->status == 3) {
+
+            return $this->view('email.status-solicitud')
+                    ->attach(public_path('Documentos/Pagare.pdf'))
                     ->subject('Estatus de solicitud');
+                    
+        } else {
+
+            return $this->view('email.status-solicitud')
+                    ->subject('Estatus de solicitud');
+        }
+        
     }
 }
