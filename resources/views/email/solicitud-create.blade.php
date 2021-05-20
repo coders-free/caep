@@ -8,6 +8,5 @@
 </head>
 <body>
     <h1>Su solicitud se ha creado satisfactoriamente</h1>
-    <p>Por favor imprima el pagare y llevelo a la agencia que le corresponde</p>
 </body>
 </html>

@@ -10,6 +10,7 @@
     
     @if ($status == 3)
         <h1>Solicitud aprobada</h1>
+        <p>Por favor imprima el pagare y llevelo a la agencia que le corresponde</p>
     @elseif($status == 4)
         <h1>Solicitud rechazada</h1>
     @endif
