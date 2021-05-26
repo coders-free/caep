@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 
 use Livewire\WithPagination;
@@ -36,13 +37,16 @@ class UserRoles extends Component
     public function render()
     {
 
-        /*$users = User::where(function ($query) {
+        $users = User::where(function ($query) {
                     $query->where('name', 'LIKE', '%' . $this->search . '%')
                             ->orWhere('email', 'LIKE', '%' . $this->search . '%');
-                })->where('id', '!=', auth()->user()->id)
+                })->whereHas('roles', function(Builder $query){
+                    $query->where('name', "<>", 'imponente');
+                })
+                ->where('id', '!=', auth()->user()->id)
                     ->latest('id')
-                    ->paginate(10);*/
-        $users = User::whereHas('roles', function($query){
+                    ->paginate(10);
+        /* $users = User::whereHas('roles', function($query){
             $query->where('name', 'LIKE', 'administrador')
             ->orWhere('name', 'LIKE', 'ejecutivo')
             ->orWhere('name', 'LIKE', 'reporte')
@@ -50,7 +54,7 @@ class UserRoles extends Component
             ->where('users.email', 'LIKE', '%' . $this->search . '%');
         })
         ->latest('id')
-        ->paginate(10);            
+        ->paginate(10);   */          
 
         return view('livewire.user-roles', compact('users'));
 
