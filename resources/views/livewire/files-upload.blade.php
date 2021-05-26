@@ -1,7 +1,7 @@
 <div>
     <x-jet-form-section submit="save">
         <x-slot name="title">
-            <div class="text-center"><i class="fa fa-money fa-5x" style="color:#b19d78" aria-hidden="true">Up</i></div>
+            <div class="text-center"></div>
         </x-slot>
 
         <x-slot name="description">

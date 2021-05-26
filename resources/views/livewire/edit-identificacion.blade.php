@@ -2,7 +2,7 @@
 
     <x-jet-form-section submit="update">
         <x-slot name="title">
-            <div class="text-center"><i class="fa fa-id-card fa-5x" style="color:#b19d78" aria-hidden="true"></i></div>
+            <div class="text-center"><i class="fa fa-id-card fa-5x" style="color:#0342cb" aria-hidden="true"></i></div>
         </x-slot>
 
         <x-slot name="description">

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-white leading-tight">
+            <h2 class="font-semibold text-3xl text-white leading-tight">
                 Editar solicitud
             </h2>
 
@@ -23,7 +23,7 @@
             {{-- Información de la solicitud --}}
             <section>
 
-                <h1 class="text-center text-2xl font-medium text-gray-700 mb-4">Información de la solicitud</h1>
+                <h1 class="text-center text-xl font-medium text-gray-700 mb-4">Información de la solicitud</h1>
 
                 <div class="mb-10">
                     @livewire('solicitud.edit-component', compact('solicitud'))
@@ -36,7 +36,7 @@
             {{-- Información del imponente --}}
             <section>
 
-                <h1 class="text-center text-2xl font-medium text-gray-700 mb-4">Información del imponente</h1>
+                <h1 class="text-center text-xl font-medium text-gray-700 mb-4">Información del imponente</h1>
 
                 <div class="mb-10">
                     @livewire('edit-identificacion', ['identificacion' => $solicitud->identificacion])
@@ -78,7 +78,7 @@
             {{-- Subida de archivos --}}
             <section>
 
-                <h1 class="text-center text-2xl font-medium text-gray-700 mb-4">Subida de archivos</h1>
+                <h1 class="text-center text-xl font-medium text-gray-700 mb-4">Subida de archivos</h1>
 
                 <div class="mb-10">
                     @livewire('files-upload', compact('solicitud'))

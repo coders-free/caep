@@ -54,7 +54,8 @@ class SolicitudController extends Controller
     public function update(Solicitud $solicitud){
         $solicitud->status = 2;
         $solicitud->save();
+        $correo = auth()->user()->email;
 
-        return redirect('/');
+        return redirect('/solicitudes')->with('info', 'Su solicitud a sido enviada a Revisión, un ejecutivo se contactara con Usted. Se ha enviado un correo como respaldo a la siguiente dirección '.$correo);
     }
 }

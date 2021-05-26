@@ -12,7 +12,7 @@
             @if ($users->count())
 
                 <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50" style="background-color: #B19D78">
+                    <thead class="bg-gray-50" style="background-color: #0342cb">
                         <tr>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
@@ -37,7 +37,7 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
+                    <tbody class="bg-indigo-50 divide-y divide-gray-200">
                         @foreach ($users as $item)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">

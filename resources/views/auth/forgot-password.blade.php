@@ -25,7 +25,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
+                <x-jet-button style="background-color:#0342cb">
                     {{ __('Obtener enlace de restablecimiento de contraseña') }}
                 </x-jet-button>
             </div>

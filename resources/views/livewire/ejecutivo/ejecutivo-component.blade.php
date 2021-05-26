@@ -1,6 +1,6 @@
 <div>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-white leading-tight">
+        <h2 class="font-semibold text-3xl text-white leading-tight text-center">
             Solicitudes
         </h2>
     </x-slot>
@@ -11,32 +11,33 @@
 
         <div class="mb-12">
             <div class="md:grid md:grid-cols-1 mb-12 px-4 py-5 sm:px-6 mt-5 md:mt-0 md:col-span-2 bg-white shadow overflow-hidden sm:rounded-lg">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                <h3 class="text-3xl leading-6 font-medium text-gray-900 text-center"><i class="fa fa-bullhorn" aria-hidden="true" style="color: #0342cb"></i>
                     Usted pertenece a la agencia <span class="capitalize">{{strtolower(auth()->user()->ejecutivo->agencia->name)}}</span>
                 </h3>
-                <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                    Aquí encontrarás un resumen de las solicitudes
-                </p>
+                <h3 class="text-lg leading-6 font-medium text-gray-900 text-center">
+                    Aquí encontrarás un resumen de las solicitudes</span>
+                </h3>
+               
             </div>
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        <div class="text-center"><i class="fa fa-list fa-5x" style="color:#b19d78" aria-hidden="true"></i></div>
-                        <div class="text-center text-xl">{{$solicitudes->total()}}</div>
+                        <div class="text-center"><i class="fa fa-list fa-5x" style="color:#0342cb" aria-hidden="true"></i></div>
+                        <div class="text-center text-5xl">{{$solicitudes->total()}}</div>
                         <div class="text-center text-xl">pendientes</div>
                     </div>
                 </div>
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        <div class="text-center"><i class="fa fa-thumbs-up fa-5x" style="color:#b19d78" aria-hidden="true"></i></div>
-                        <div class="text-center text-xl">{{$aprobados}}</div>
+                        <div class="text-center"><i class="fa fa-thumbs-up fa-5x" style="color:#0342cb" aria-hidden="true"></i></div>
+                        <div class="text-center text-5xl">{{$aprobados}}</div>
                         <div class="text-center text-xl">aprobadas</div>
                     </div>
                 </div>
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        <div class="text-center"><i class="fa fa-times fa-5x" style="color:#b19d78" aria-hidden="true"></i></div>
-                        <div class="text-center text-xl">{{$rechazados}}</div>
+                        <div class="text-center"><i class="fa fa-times fa-5x" style="color:#0342cb" aria-hidden="true"></i></div>
+                        <div class="text-center text-5xl">{{$rechazados}}</div>
                         <div class="text-center text-xl">rechazadas</div>
                     </div>
                 </div>
@@ -68,7 +69,7 @@
                     
 
                     <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50" style="background-color: #b19d78">
+                        <thead class="bg-gray-50" style="background-color: #0342cb">
                             <tr>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
@@ -102,7 +103,7 @@
                             </tr>
                         </thead>
 
-                        <tbody class="bg-white divide-y divide-gray-200">
+                        <tbody class="bg-indigo-50 divide-y divide-gray-200">
 
 
                             @foreach ($solicitudes as $solicitud)
@@ -143,7 +144,7 @@
                                             @case(1)
 
                                             <span
-                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white text-red-800">
                                                 Borrador
                                             </span>
 
@@ -151,7 +152,7 @@
                                             @case(2)
 
                                             <span
-                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white text-yellow-800">
                                                 Revisión
                                             </span>
 
@@ -160,7 +161,7 @@
                                             @case(3)
 
                                             <span
-                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white text-green-800">
                                                 Aprobado
                                             </span>
 
@@ -175,7 +176,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 
                                         <a href="{{ route('ejecutivo.solicitudes.show', $solicitud) }}"
-                                            class="btn btn-primary">Detalle</a>
+                                            class="btn btn-primary" style="background-color:#0342cb">Detalle</a>
 
                                     </td>
                                 </tr>

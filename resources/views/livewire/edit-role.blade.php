@@ -2,7 +2,7 @@
     <button 
         class="btn btn-primary disabled:opacity-25"
         wire:click="$set('open', true)"
-        wire:loading.attr="disabled">
+        wire:loading.attr="disabled" style="background-color:#0342cb">
         Editar
     </button>
 

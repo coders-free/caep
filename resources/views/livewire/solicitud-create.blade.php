@@ -43,7 +43,7 @@
             <button class="btn btn-primary disabled:opacity-50" 
                     wire:click="save"
                     wire:loading.attr="disabled"
-                    wire:target="save">
+                    wire:target="save" style="background-color:#0342cb">
                     Crear solicitud
             </button>
         </x-slot>

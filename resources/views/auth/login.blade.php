@@ -39,7 +39,7 @@
                     </a>
                 @endif
 
-                <x-jet-button class="ml-4">
+                <x-jet-button class="ml-4" style="background-color:#0342cb">
                     {{ __('Iniciar sesión') }}
                 </x-jet-button>
             </div>
