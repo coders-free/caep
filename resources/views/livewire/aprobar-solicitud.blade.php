@@ -1,11 +1,11 @@
 <div>
     <x-jet-form-section submit="update">
         <x-slot name="title">
-            Aprobar solicitud
+            
         </x-slot>
 
         <x-slot name="description">
-            Nombre y rut del imponente
+            
         </x-slot>
 
         <x-slot name="form">
