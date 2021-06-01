@@ -8,7 +8,7 @@ use Livewire\Component;
 
 use Livewire\WithPagination;
 
-class PrestamoComponent extends Component
+class Prestamos extends Component
 {
 
     use WithPagination;
@@ -65,7 +65,7 @@ class PrestamoComponent extends Component
                             ->latest('id')
                             ->paginate(10);
 
-        return view('livewire.administrador.prestamo-component', compact('prestamos'))
+        return view('livewire.administrador.prestamos', compact('prestamos'))
                     ->layout('layouts.administrador');
     }
 }

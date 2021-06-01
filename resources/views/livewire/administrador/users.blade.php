@@ -1,11 +1,18 @@
 <div>
+
+    <x-slot name="header">
+        <h2 class="font-semibold text-3xl text-white leading-tight text-center">
+            Lista de usuarios
+        </h2>
+    </x-slot>
+
     <div class="container py-12">
         <x-table-responsive>
             <div class="px-6 py-4 flex items-center">
 
                 <x-jet-input type="text" class="mt-1 block flex-1" wire:model="search" placeholder="Escriba algo" />
 
-                @livewire('create-user')
+                @livewire('administrador.create-user')
 
             </div>
 
@@ -68,15 +75,8 @@
                                     <div class="text-sm text-gray-900 flex justify-end">
 
 
-                                        @livewire('edit-role', ['user' => $item], key($item->id))
+                                        @livewire('administrador.edit-user', ['user' => $item], key($item->id))
 
-                                        {{-- <button 
-                                            class="btn btn-primary disabled:opacity-25"
-                                            wire:click="edit({{$item}})"
-                                            wire:loading.attr="disabled"
-                                            wire:target="edit({{$item}})">
-                                            Editar
-                                        </button> --}}
                                     </div>
                                 </td>
 

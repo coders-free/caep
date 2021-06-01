@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Administrador;
 
 use Livewire\Component;
 
-class EditRole extends Component
+class EditUser extends Component
 {
 
     public $user, $name, $email, $password, $password_confirmation, $rol;
@@ -20,7 +20,7 @@ class EditRole extends Component
 
     public function render()
     {
-        return view('livewire.edit-role');
+        return view('livewire.administrador.edit-user');
     }
 
     public function update(){

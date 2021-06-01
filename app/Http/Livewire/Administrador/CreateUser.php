@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Administrador;
 
 use App\Models\User;
 use App\Models\Agencia;
@@ -27,7 +27,7 @@ class CreateUser extends Component
 
     public function render()
     {
-        return view('livewire.create-user');
+        return view('livewire.administrador.create-user');
     }
 
 

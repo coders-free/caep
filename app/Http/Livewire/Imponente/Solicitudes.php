@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Imponente;
 
 use Livewire\Component;
 use Illuminate\Database\Eloquent\Builder;
 
 use Livewire\WithPagination;
 
-class SolicitudesComponent extends Component
+class Solicitudes extends Component
 {
 
     use WithPagination;
@@ -30,6 +30,6 @@ class SolicitudesComponent extends Component
     public function render()
     {
 
-        return view('livewire.solicitudes-component');
+        return view('livewire.imponente.solicitudes');
     }
 }

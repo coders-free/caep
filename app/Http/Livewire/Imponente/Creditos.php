@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Imponente;
 
 use Livewire\Component;
 use Illuminate\Database\Eloquent\Builder;
 
 use Livewire\WithPagination;
 
-class CreditoImponente extends Component
+class Creditos extends Component
 {
 
     use WithPagination;
@@ -25,6 +25,6 @@ class CreditoImponente extends Component
             $query->where('name', 'like', '%' . $this->search . '%');
         })->paginate(10);
 
-        return view('livewire.credito-imponente', compact('creditos'));
+        return view('livewire.imponente.creditos', compact('creditos'));
     }
 }

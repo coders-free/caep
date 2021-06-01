@@ -10,11 +10,8 @@ use App\Models\User;
 class HomeController extends Controller
 {
 
-    public function index(){
-        return view('administrador.index');
-    }
 
-    public function showRegister(){
+    /* public function showRegister(){
         return view('administrador.showRegister');
     }
 
@@ -37,5 +34,5 @@ class HomeController extends Controller
         session()->flash('flash.bannerStyle', 'success');
 
         return back();
-    }
+    } */
 }

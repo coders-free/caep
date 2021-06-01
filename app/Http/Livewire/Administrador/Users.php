@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Administrador;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
@@ -8,7 +8,7 @@ use Livewire\Component;
 
 use Livewire\WithPagination;
 
-class UserRoles extends Component
+class Users extends Component
 {
 
     use WithPagination;
@@ -46,20 +46,8 @@ class UserRoles extends Component
                 ->where('id', '!=', auth()->user()->id)
                     ->latest('id')
                     ->paginate(10);
-        /* $users = User::whereHas('roles', function($query){
-            $query->where('name', 'LIKE', 'administrador')
-            ->orWhere('name', 'LIKE', 'ejecutivo')
-            ->orWhere('name', 'LIKE', 'reporte')
-            ->where('users.name', 'LIKE', '%' . $this->search . '%')
-            ->where('users.email', 'LIKE', '%' . $this->search . '%');
-        })
-        ->latest('id')
-        ->paginate(10);   */          
+     
 
-        return view('livewire.user-roles', compact('users'));
-
-        /*$posts = Post::whereHas('comments', function (Builder $query) {
-            $query->where('content', 'like', 'code%');
-        })->get();*/
+        return view('livewire.administrador.users', compact('users'))->layout('layouts.administrador');;
     }
 }
