@@ -43,7 +43,6 @@ class SolicitudCreate extends Component
             $this->emit('complete_imponente');
         }
 
-        $this->emit('complete_imponente');
     }
 
     public function save(){
