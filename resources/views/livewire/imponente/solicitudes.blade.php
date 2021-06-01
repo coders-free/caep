@@ -191,7 +191,8 @@
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: "Debe completar los datos de imponente para poder crear una solicitud",
+                    text: 'Debe completar los datos de imponente para poder crear una solicitud',
+                    footer: '<a href="/imponente">¿Quieres dirigirte a la ruta de imponente?</a>'
                 })
             })
 
