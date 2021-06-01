@@ -1,5 +1,9 @@
 <div>
-    <x-jet-danger-button class="ml-4" wire:click="$set('open', true)">
+    <x-jet-danger-button 
+        class="ml-4 disabled:opacity-25" 
+        wire:click="open_modal"
+        wire:loading.attr="disabled"
+        wire:target="open_modal">
         Crear solicitud
     </x-jet-danger-button>
 
@@ -48,4 +52,5 @@
             </button>
         </x-slot>
     </x-jet-dialog-modal>
+
 </div>

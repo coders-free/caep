@@ -14,7 +14,7 @@ class BancarioEdit extends Component
 
     protected $rules = [
         'bancario.envio_id'         => 'required',
-        'bancario.agencia'          => 'required',
+        'bancario.agencia'          => 'string',
         'bancario.tipo_id'          => 'required',
         'bancario.banco'            => 'required',
         'bancario.numero_cuenta'    => 'required',
@@ -26,6 +26,7 @@ class BancarioEdit extends Component
 
     public function render()
     {
+        
 
         $envios = Envio::all();
         $tipos = Tipo::all();
@@ -34,6 +35,16 @@ class BancarioEdit extends Component
     }
 
     public function update(){
+
+        $rules = $this->rules;
+        if($this->bancario->envio_id == 4) {
+            $rules['bancario.agencia'] = 'required';
+        }
+
+        $this->validate($rules);
+
+        $this->bancario->complete = 1;
+
         $this->bancario->save();
 
         $this->emit('saved');

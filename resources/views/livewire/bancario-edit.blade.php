@@ -20,9 +20,12 @@
                         </label>
                     @endforeach
 
+                    <x-jet-input-error for="bancario.envio_id" />
+
                     @if ($bancario->envio_id == 4)
                         <x-jet-input id="direccion" placeholder="Ingrese el nombre de la agencia" type="text" class="mt-1 block w-full mt-3"
                         wire:model.defer="bancario.agencia" />
+                        <x-jet-input-error for="bancario.agencia" />
                     @endif
                 </div>
 
@@ -37,6 +40,7 @@
                             {{$tipo->name}}
                         </label>
                     @endforeach
+                    <x-jet-input-error for="bancario.tipo_id" />
                  
                 </div>
 
@@ -46,14 +50,14 @@
                 <x-jet-label for="direccion" value="Banco" />
                 <x-jet-input id="direccion" type="text" class="mt-1 block w-full"
                     wire:model.defer="bancario.banco" />
-                <x-jet-input-error for="direccion" class="mt-2" />
+                <x-jet-input-error for="bancario.banco" class="mt-2" />
             </div>
 
             <div class="col-span-6">
                 <x-jet-label for="direccion" value="Numero de cuenta" />
                 <x-jet-input id="direccion" type="text" class="mt-1 block w-full"
                     wire:model.defer="bancario.numero_cuenta" />
-                <x-jet-input-error for="direccion" class="mt-2" />
+                <x-jet-input-error for="bancario.numero_cuenta" class="mt-2" />
             </div>
 
         </x-slot>

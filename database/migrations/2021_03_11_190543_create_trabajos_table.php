@@ -34,6 +34,8 @@ class CreateTrabajosTable extends Migration
             $table->unsignedBigInteger('comuna_id')->nullable();
             $table->foreign('comuna_id')->references('id')->on('comunas');
 
+            $table->boolean('complete')->default(0);
+
             $table->timestamps();
         });
     }

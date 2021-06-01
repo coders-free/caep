@@ -39,6 +39,9 @@ class CreateIdentificacionesTable extends Migration
 
             $table->string('celular')->nullable();
 
+            $table->boolean('complete')->default(0);
+
+
             $table->timestamps();
         });
     }

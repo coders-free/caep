@@ -52,7 +52,7 @@
 
                 <x-jet-input type="text" class="mt-1 block flex-1" wire:model="search" placeholder="Escriba algo" />
 
-                @livewire('ejecutivo.solicitud-create')
+                {{-- @livewire('ejecutivo.solicitud-create') --}}
 
             </div>
 

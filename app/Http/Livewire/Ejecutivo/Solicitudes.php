@@ -46,6 +46,8 @@ class Solicitudes extends Component
 
         $solicitudes = $solicitudes->latest('id')->paginate(10);
 
+        /* $solicitudes = Solicitud::paginate(10); */
+
         $aprobados = Solicitud::where('user_id', auth()->user()->id)
                                 ->where('status', 3)
                                 ->count();

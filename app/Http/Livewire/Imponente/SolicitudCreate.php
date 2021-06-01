@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Imponente;
 
 use App\Models\Prestamo;
 use App\Models\Solicitud;
@@ -28,6 +28,22 @@ class SolicitudCreate extends Component
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
+    }
+
+
+    public function open_modal(){
+    
+        $identificacion = auth()->user()->imponente->identificacion;
+        $trabajo = auth()->user()->imponente->trabajo;
+        $bancario = auth()->user()->imponente->bancario;
+
+        if ($identificacion->complete && $trabajo->complete && $bancario->complete) {
+            $this->open = true;
+        }else{
+            $this->emit('complete_imponente');
+        }
+
+        $this->emit('complete_imponente');
     }
 
     public function save(){
@@ -61,9 +77,9 @@ class SolicitudCreate extends Component
             ]);
         }
 
-        if (auth()->user()->email) {
+        /* if (auth()->user()->email) {
             Mail::to(auth()->user()->email)->send(new SolicitudMailable);
-        }
+        } */
 
         return redirect()->route('solicitudes.edit', $solicitud);
 
@@ -72,6 +88,6 @@ class SolicitudCreate extends Component
 
     public function render()
     {
-        return view('livewire.solicitud-create');
+        return view('livewire.imponente.solicitud-create');
     }
 }

@@ -12,7 +12,7 @@ use Livewire\Component;
 class SolicitudCreate extends Component
 {
 
-    public $open = false;
+    public $open = true;
 
     public $type, $imponentes, $imponente_id, $monto;
 

@@ -15,29 +15,32 @@
                 <x-jet-label for="direccion" value="Dirección" />
                 <x-jet-input id="direccion" type="text" class="mt-1 block w-full"
                     wire:model.defer="identificacion.direccion" />
-                <x-jet-input-error for="direccion" class="mt-2" />
+                <x-jet-input-error for="identificacion.direccion" class="mt-2" />
             </div>
 
             {{-- Region --}}
             <div class="col-span-3">
                 <x-jet-label for="direccion" value="Region" />
                 <select class="form-control w-full" name="" id="" wire:model="identificacion.region_id">
-                    <option selected="true" disabled="disabled">Seleccione una opcion</option>
+                    <option value="" selected="true" disabled="disabled">Seleccione una opcion</option>
                     @foreach ($regiones as $region)
                         <option value="{{ $region->id }}">{{ $region->name }}</option>
                     @endforeach
                 </select>
+                <x-jet-input-error for="identificacion.region_id" class="mt-2" />
             </div>
 
             {{-- Comunidad --}}
             <div class="col-span-3">
                 <x-jet-label for="direccion" value="Comuna" />
                 <select class="form-control w-full" wire:model="identificacion.comuna_id">
-                    <option selected="true" disabled="disabled">Seleccione una opcion</option>
+                    <option value="" selected="true" disabled="disabled">Seleccione una opcion</option>
                     @foreach ($this->comunas as $comuna)
                         <option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
                     @endforeach
                 </select>
+
+                <x-jet-input-error for="identificacion.comuna_id" class="mt-2" />
             </div>
 
             {{-- Fecha de nacimiento --}}
@@ -46,29 +49,32 @@
                 <x-jet-label value="Fecha de nacimiento" />
                 <x-jet-input id="fecha_nacimiento" type="text" class="mt-1 block w-full"
                     value="{{$fecha_nacimiento}}" />
-                <x-jet-input-error for="fecha_nacimiento" class="mt-2" />
+                <x-jet-input-error for="identificacion.fecha_nacimiento" class="mt-2" />
             </div>
 
             {{-- Sexo --}}
             <div class="col-span-3">
                 <x-jet-label for="direccion" value="Sexos" />
                 <select class="form-control w-full" wire:model="identificacion.sexo_id">
-                    <option selected="true" disabled="disabled">Seleccione una opcion</option>
+                    <option value="" selected="true" disabled="disabled">Seleccione una opcion</option>
                     @foreach ($sexos as $sexo)
                         <option value="{{ $sexo->id }}">{{ $sexo->name }}</option>
                     @endforeach
                 </select>
+                <x-jet-input-error for="identificacion.sexo_id" class="mt-2" />
             </div>
 
             {{-- Estado civil --}}
             <div class="col-span-3">
                 <x-jet-label for="direccion" value="Estado civil" />
                 <select class="form-control w-full" wire:model="identificacion.estado_civil_id">
-                    <option selected="true" disabled="disabled">Seleccione una opcion</option>
+                    <option value="" selected="true" disabled="disabled">Seleccione una opcion</option>
                     @foreach ($estados_civiles as $estado_civil)
                         <option value="{{ $estado_civil->id }}">{{ $estado_civil->name }}</option>
                     @endforeach
                 </select>
+
+                <x-jet-input-error for="identificacion.estado_civil_id" class="mt-2" />
             </div>
 
             {{-- Celular --}}
@@ -76,7 +82,7 @@
                 <x-jet-label for="direccion" value="Celular" />
                 <x-jet-input id="direccion" type="text" class="mt-1 block w-full"
                     wire:model.defer="identificacion.celular" />
-                <x-jet-input-error for="direccion" class="mt-2" />
+                <x-jet-input-error for="identificacion.celular" class="mt-2" />
             </div>
 
             {{-- Separacion de bienes --}}
@@ -94,6 +100,8 @@
                         Sin separación de bienes
                     </label>
                 </div>
+
+                <x-jet-input-error for="identificacion.separacion" class="mt-2" />
                 
             </div>
 

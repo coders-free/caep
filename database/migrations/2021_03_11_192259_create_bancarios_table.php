@@ -30,6 +30,8 @@ class CreateBancariosTable extends Migration
             $table->string('banco')->nullable();
             $table->string('numero_cuenta')->nullable();
 
+            $table->boolean('complete')->default(0);
+
             $table->timestamps();
         });
     }

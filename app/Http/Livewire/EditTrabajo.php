@@ -16,14 +16,29 @@ class EditTrabajo extends Component
     protected $rules = [
         'trabajo.reparticion' => 'required',
         'trabajo.cargo_id'    => 'required',
-        'trabajo.antiguedad'  => 'required',
+        'antiguedad'  => 'required',
         'trabajo.direccion'   => 'required',
         'trabajo.region_id'   => 'required',
         'trabajo.comuna_id'   => 'required',
     ];
 
     public function mount(Trabajo $trabajo){
+        
         $this->trabajo = $trabajo;
+
+        if (!$this->trabajo->cargo_id) {
+            $this->trabajo->cargo_id = "";
+        }
+
+        if (!$this->trabajo->region_id) {
+            $this->trabajo->region_id = "";
+        }
+
+
+        if (!$this->trabajo->comuna_id) {
+            $this->trabajo->comuna_id = "";
+        }
+
 
         if ($this->trabajo->antiguedad) {
             $this->antiguedad = $this->trabajo->antiguedad->format('d/m/Y');
@@ -46,10 +61,14 @@ class EditTrabajo extends Component
     }
 
     public function update(){
+
+        $this->validate();
         
         if ($this->antiguedad) {
             $this->trabajo->antiguedad = Carbon::createFromFormat('d/m/Y', $this->antiguedad);
         }
+
+        $this->trabajo->complete = 1;
 
         $this->trabajo->save();
 
