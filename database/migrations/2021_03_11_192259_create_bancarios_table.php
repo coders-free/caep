@@ -19,16 +19,16 @@ class CreateBancariosTable extends Migration
             $table->unsignedBigInteger('bancarioable_id');
             $table->string('bancarioable_type');
 
-            $table->unsignedBigInteger('envio_id');
+            $table->unsignedBigInteger('envio_id')->nullable();
             $table->foreign('envio_id')->references('id')->on('envios');
 
             $table->string('agencia')->nullable();
 
-            $table->unsignedBigInteger('tipo_id');
+            $table->unsignedBigInteger('tipo_id')->nullable();
             $table->foreign('tipo_id')->references('id')->on('tipos');
 
-            $table->string('banco');
-            $table->string('numero_cuenta');
+            $table->string('banco')->nullable();
+            $table->string('numero_cuenta')->nullable();
 
             $table->timestamps();
         });

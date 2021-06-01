@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Imports\UsersImport;
+
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Aval;
 use App\Models\Bancario;
 use App\Models\Credito;
@@ -24,7 +27,10 @@ class UserSeeder extends Seeder
     public function run()
     {
 
-        User::factory(10)->create()->each(function(User $user){
+        Excel::import(new UsersImport, 'carga/20210526_MACKENNA_CARGARIMPONENTES.csv', 'local');
+
+
+        /* User::factory(10)->create()->each(function(User $user){
 
             Imponente::factory(1)->create([
                 'user_id' => $user->id
@@ -132,7 +138,7 @@ class UserSeeder extends Seeder
 
             $user->assignRole('imponente');
 
-        });
+        }); */
 
         
     }

@@ -78,4 +78,10 @@ class User extends Authenticatable
         return $this->hasMany(Solicitud::class);
     }
 
+    //Mutadores
+
+    public function setEmailAttribute($value){
+        $this->attributes['email'] = strtolower($value);
+    }
+
 }

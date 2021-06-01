@@ -19,9 +19,9 @@ class CreateImponentesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->integer('rut');
+            $table->string('rut');
 
-            $table->unsignedBigInteger('fondos');
+            $table->bigInteger('fondos');
 
             $table->timestamps();
         });

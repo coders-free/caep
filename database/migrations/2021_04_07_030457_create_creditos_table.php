@@ -24,11 +24,11 @@ class CreateCreditosTable extends Migration
 
             $table->dateTime('fecha_cierre');
 
-            $table->float('monto_prestamo');
+            $table->unsignedBigInteger('monto_prestamo');
 
             $table->integer('numero_cuotas');
 
-            $table->float('monto_cuota');
+            $table->BigInteger('monto_cuota');
 
             $table->dateTime('fecha_vencimiento');
 
