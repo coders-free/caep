@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Imponente;
 
 use App\Models\File;
 use App\Models\Solicitud;
@@ -53,6 +53,6 @@ class FilesUpload extends Component
 
     public function render()
     {
-        return view('livewire.files-upload');
+        return view('livewire.imponente.files-upload');
     }
 }

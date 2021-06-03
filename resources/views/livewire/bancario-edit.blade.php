@@ -23,8 +23,16 @@
                     <x-jet-input-error for="bancario.envio_id" />
 
                     @if ($bancario->envio_id == 4)
-                        <x-jet-input placeholder="Ingrese el nombre de la agencia" type="text" class="mt-1 block w-full mt-3"
-                        wire:model.defer="bancario.agencia" />
+                        {{-- <x-jet-input placeholder="Ingrese el nombre de la agencia" type="text" class="block w-full mt-3"
+                         /> --}}
+
+                        <select wire:model.defer="bancario.agencia" class="form-control w-full mt-3">
+                            <option value="" selected disabled>Seleccione una opción</option>
+                            @foreach ($agencias as $agencia)
+                                <option value="{{$agencia->name}}">{{$agencia->name}}</option>
+                            @endforeach
+                        </select>
+
                         <x-jet-input-error for="bancario.agencia" />
                     @endif
                 </div>

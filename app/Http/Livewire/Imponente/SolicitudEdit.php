@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire\Solicitud;
+namespace App\Http\Livewire\Imponente;
 
 use App\Models\Prestamo;
 use Livewire\Component;
 
-class EditComponent extends Component
+class SolicitudEdit extends Component
 {
 
     public $solicitud, $hipotecario, $detalle_prestamo, $prestamos, $cuotas;
@@ -47,7 +47,7 @@ class EditComponent extends Component
     public function render()
     {
 
-        return view('livewire.solicitud.edit-component');
+        return view('livewire.imponente.solicitud-edit');
     }
 
     public function update(){

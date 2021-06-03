@@ -12,7 +12,7 @@ use Livewire\Component;
 class SolicitudCreate extends Component
 {
 
-    public $open = true;
+    public $open = false;
 
     public $type, $imponentes, $imponente_id, $monto;
 
@@ -21,7 +21,6 @@ class SolicitudCreate extends Component
         "monto"     => 'required',
     ];
 
-    //Propiedades computadas
     public function getImponenteProperty()
     {
         return Imponente::find($this->imponente_id);
@@ -73,8 +72,6 @@ class SolicitudCreate extends Component
 
         $solicitud->status = 2;
         $solicitud->save();
-
-        /* return redirect()->route('solicitudes.edit', $solicitud); */
         
         return redirect()->route('ejecutivo.solicitudes.show', $solicitud);
 

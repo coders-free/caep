@@ -22,7 +22,7 @@ class CreateBancariosTable extends Migration
             $table->unsignedBigInteger('envio_id')->nullable();
             $table->foreign('envio_id')->references('id')->on('envios');
 
-            $table->string('agencia')->nullable();
+            $table->string('agencia')->nullable()->default('');
 
             $table->unsignedBigInteger('tipo_id')->nullable();
             $table->foreign('tipo_id')->references('id')->on('tipos');

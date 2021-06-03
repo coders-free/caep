@@ -26,7 +26,7 @@
                 <h1 class="text-center text-xl font-medium text-gray-700 mb-4">Información de la solicitud</h1>
 
                 <div class="mb-10">
-                    @livewire('solicitud.edit-component', compact('solicitud'))
+                    @livewire('imponente.solicitud-edit', compact('solicitud'))
         
                     <x-jet-section-border />
                 </div>
@@ -81,7 +81,7 @@
                 <h1 class="text-center text-xl font-medium text-gray-700 mb-4">Subida de archivos</h1>
 
                 <div class="mb-10">
-                    @livewire('files-upload', compact('solicitud'))
+                    @livewire('imponente.files-upload', compact('solicitud'))
                 </div>
             </section>
         

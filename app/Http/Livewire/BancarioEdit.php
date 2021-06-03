@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Agencia;
 use App\Models\Bancario;
 use App\Models\Envio;
 use App\Models\Tipo;
@@ -10,7 +11,7 @@ use Livewire\Component;
 class BancarioEdit extends Component
 {
 
-    public $bancario;
+    public $bancario, $agencias;
 
     protected $rules = [
         'bancario.envio_id'         => 'required',
@@ -22,6 +23,8 @@ class BancarioEdit extends Component
 
     public function mount(Bancario $bancario){
         $this->bancario = $bancario;
+
+        $this->agencias = Agencia::all();
     }
 
     public function render()

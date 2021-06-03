@@ -75,7 +75,7 @@
                 <h1 class="text-center text-xl font-medium text-gray-700 mb-4">Subida de archivos</h1>
 
                 <div class="mb-10">
-                    @livewire('files-upload', compact('solicitud'))
+                    @livewire('imponente.files-upload', compact('solicitud'))
                     <x-jet-section-border />
                 </div>
             </section>
