@@ -27,7 +27,7 @@ class CreateBancariosTable extends Migration
             $table->unsignedBigInteger('tipo_id')->nullable();
             $table->foreign('tipo_id')->references('id')->on('tipos');
 
-            $table->string('banco')->nullable();
+            $table->string('banco')->nullable()->default('');
             $table->string('numero_cuenta')->nullable();
 
             $table->boolean('complete')->default(0);

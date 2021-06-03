@@ -20,12 +20,13 @@
             {{-- cargos --}}
             <div class="col-span-3">
                 <x-jet-label for="direccion" value="Cargo" />
-                <select class="form-control w-full" name="" id="" wire:model="trabajo.cargo_id">
+                <x-jet-input type="text" class="mt-1 block w-full" wire:model.defer="trabajo.cargo" />
+                {{-- <select class="form-control w-full" name="" id="" wire:model="trabajo.cargo_id">
                     <option value="" selected="true" disabled="disabled">Seleccione una opcion</option>
                     @foreach ($cargos as $cargo)
                         <option value="{{ $cargo->id }}">{{ $cargo->name }}</option>
                     @endforeach
-                </select>
+                </select> --}}
                 <x-jet-input-error for="trabajo.cargo_id" class="mt-2" />
             </div>
 

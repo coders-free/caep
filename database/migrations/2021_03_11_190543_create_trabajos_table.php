@@ -21,8 +21,10 @@ class CreateTrabajosTable extends Migration
 
             $table->string('reparticion')->nullable();
 
-            $table->unsignedBigInteger('cargo_id')->nullable();
-            $table->foreign('cargo_id')->references('id')->on('cargos');
+            $table->string('cargo')->nullable();
+
+            /* $table->unsignedBigInteger('cargo_id')->nullable();
+            $table->foreign('cargo_id')->references('id')->on('cargos'); */
 
             $table->dateTime('antiguedad')->nullable();
 

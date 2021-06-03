@@ -205,7 +205,7 @@
 
                             <div class="col-span-1">
                                 <label class="form-label">Cargo</label>
-                                <p class="form-control-2">{{ $solicitud->trabajo->cargo->name }}</p>
+                                <p class="form-control-2">{{ $solicitud->trabajo->cargo}}</p>
                             </div>
 
                             <div class="col-span-1">

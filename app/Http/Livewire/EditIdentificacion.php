@@ -23,7 +23,7 @@ class EditIdentificacion extends Component
         'identificacion.sexo_id'            => 'required',
         'identificacion.estado_civil_id'    => 'required',
         'identificacion.separacion'         => 'required',
-        'identificacion.celular'            => 'required',
+        'identificacion.celular'            => 'required|numeric',
     ];
 
     public function mount(Identificacion $identificacion){

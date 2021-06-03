@@ -32882,6 +32882,12 @@ select {
   font-style: italic;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 @media (min-width: 640px) {
   .sm\:prose {
     color: #374151;

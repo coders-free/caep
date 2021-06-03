@@ -15,9 +15,9 @@ class Trabajo extends Model
 
     //Relacion uno a muchos inversa
 
-    public function cargo(){
+    /* public function cargo(){
         return $this->belongsTo(Cargo::class);
-    }
+    } */
 
     public function region(){
         return $this->belongsTo(Region::class);

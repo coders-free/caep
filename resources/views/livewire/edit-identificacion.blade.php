@@ -10,11 +10,14 @@
         </x-slot>
 
         <x-slot name="form">
-            
+            {{-- Dirección --}}
             <div class="col-span-6">
                 <x-jet-label for="direccion" value="Dirección" />
-                <x-jet-input id="direccion" type="text" class="mt-1 block w-full"
-                    wire:model.defer="identificacion.direccion" />
+                <x-jet-input id="direccion" 
+                    type="text" 
+                    class="mt-1 block w-full"
+                    wire:model.defer="identificacion.direccion"
+                    autocomplete="off"/>
                 <x-jet-input-error for="identificacion.direccion" class="mt-2" />
             </div>
 
@@ -80,8 +83,11 @@
             {{-- Celular --}}
             <div class="col-span-3">
                 <x-jet-label for="direccion" value="Celular" />
-                <x-jet-input id="direccion" type="text" class="mt-1 block w-full"
-                    wire:model.defer="identificacion.celular" />
+                <x-jet-input id="direccion" 
+                    type="number" 
+                    class="mt-1 block w-full"
+                    wire:model.defer="identificacion.celular"
+                    autocomplete="off" />
                 <x-jet-input-error for="identificacion.celular" class="mt-2" />
             </div>
 

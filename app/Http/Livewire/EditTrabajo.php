@@ -15,7 +15,7 @@ class EditTrabajo extends Component
 
     protected $rules = [
         'trabajo.reparticion' => 'required',
-        'trabajo.cargo_id'    => 'required',
+        'trabajo.cargo'    => 'required',
         'antiguedad'  => 'required',
         'trabajo.direccion'   => 'required',
         'trabajo.region_id'   => 'required',
