@@ -9,7 +9,7 @@ use App\Models\Trabajo;
 use Carbon\Carbon;
 use Livewire\Component;
 
-class EditTrabajo extends Component
+class TrabajoComponent extends Component
 {
     public $trabajo, $antiguedad;
 
@@ -51,7 +51,7 @@ class EditTrabajo extends Component
         $cargos = Cargo::all();
         $regiones = Region::all();
 
-        return view('livewire.edit-trabajo', compact('cargos', 'regiones'));
+        return view('livewire.trabajo-component', compact('cargos', 'regiones'));
     }
 
     public function getComunasProperty()

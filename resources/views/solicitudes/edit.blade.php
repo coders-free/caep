@@ -39,16 +39,16 @@
                 <h1 class="text-center text-xl font-medium text-gray-700 mb-4">Información del imponente</h1>
 
                 <div class="mb-10">
-                    @livewire('edit-identificacion', ['identificacion' => $solicitud->identificacion])
+                    @livewire('identificacion-component', ['identificacion' => $solicitud->identificacion])
                 </div>
 
                 <div class="mb-10">
-                    @livewire('edit-trabajo', ['trabajo' => $solicitud->trabajo])
+                    @livewire('trabajo-component', ['trabajo' => $solicitud->trabajo])
                 </div>
 
                 <div class="mb-10">
                     {{-- @livewire('solicitud.bancario-component', compact('solicitud')) --}}
-                    @livewire('bancario-edit', ['bancario' => $solicitud->bancario])
+                    @livewire('bancario-component', ['bancario' => $solicitud->bancario])
                     <x-jet-section-border />
                 </div>
             </section>

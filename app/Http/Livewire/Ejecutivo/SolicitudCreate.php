@@ -14,29 +14,17 @@ class SolicitudCreate extends Component
 
     public $open = false;
 
-    public $type, $imponentes, $imponente_id, $monto;
+    public $type, $rut, $monto;
 
     protected $rules = [
         "type"      => 'required',
         "monto"     => 'required',
+        "rut"       => 'required|exists:imponentes,rut',
     ];
 
     public function getImponenteProperty()
     {
-        return Imponente::find($this->imponente_id);
-    }
-
-
-    public function mount(){
-
-        $this->imponentes = Imponente::all();
-        $this->imponente_id = $this->imponentes->first()->id;
-        
-    }
-
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
+        return Imponente::where('rut', $this->rut)->first();
     }
 
     public function save(){

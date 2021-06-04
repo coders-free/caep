@@ -10,20 +10,20 @@
         
         <div class="mb-10">
             
-            @livewire('edit-identificacion', ['identificacion' => auth()->user()->imponente->identificacion])
+            @livewire('identificacion-component', ['identificacion' => auth()->user()->imponente->identificacion])
             <x-jet-section-border />
 
         </div>
         
         <div class="mb-10">
-            @livewire('edit-trabajo', ['trabajo' => auth()->user()->imponente->trabajo])
+            @livewire('trabajo-component', ['trabajo' => auth()->user()->imponente->trabajo])
             
             <x-jet-section-border />
 
         </div>
 
         {{-- @livewire('bancario-component') --}}
-        @livewire('bancario-edit', ['bancario' => auth()->user()->imponente->bancario])
+        @livewire('bancario-component', ['bancario' => auth()->user()->imponente->bancario])
         
     </div>
 

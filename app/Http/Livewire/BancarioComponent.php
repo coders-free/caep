@@ -8,7 +8,7 @@ use App\Models\Envio;
 use App\Models\Tipo;
 use Livewire\Component;
 
-class BancarioEdit extends Component
+class BancarioComponent extends Component
 {
 
     public $bancario, $agencias;
@@ -27,16 +27,6 @@ class BancarioEdit extends Component
         $this->agencias = Agencia::all();
     }
 
-    public function render()
-    {
-        
-
-        $envios = Envio::all();
-        $tipos = Tipo::all();
-
-        return view('livewire.bancario-edit', compact('envios', 'tipos'));
-    }
-
     public function update(){
 
         $rules = $this->rules;
@@ -51,5 +41,15 @@ class BancarioEdit extends Component
         $this->bancario->save();
 
         $this->emit('saved');
+    }
+
+    public function render()
+    {
+        
+
+        $envios = Envio::all();
+        $tipos = Tipo::all();
+
+        return view('livewire.bancario-component', compact('envios', 'tipos'));
     }
 }

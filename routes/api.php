@@ -1,6 +1,7 @@
 <?php
 
 use App\Imports\UsersImport;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,12 @@ use Maatwebsite\Excel\Facades\Excel;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::get('users', function () {
+    $users = User::select('id', 'name as text')->get();
+    return ["results" => $users];
 });
 
 

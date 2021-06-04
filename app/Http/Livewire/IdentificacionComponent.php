@@ -10,7 +10,7 @@ use App\Models\Sexo;
 use Carbon\Carbon;
 use Livewire\Component;
 
-class EditIdentificacion extends Component
+class IdentificacionComponent extends Component
 {
 
     public $identificacion, $fecha_nacimiento;
@@ -80,6 +80,6 @@ class EditIdentificacion extends Component
         $sexos = Sexo::all();
         $estados_civiles = EstadoCivil::all();
 
-        return view('livewire.edit-identificacion', compact('regiones', 'sexos', 'estados_civiles'));
+        return view('livewire.identificacion-component', compact('regiones', 'sexos', 'estados_civiles'));
     }
 }
