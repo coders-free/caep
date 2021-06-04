@@ -20,7 +20,7 @@
                 <h1 class="text-center text-2xl font-medium text-gray-700 mb-4">Información de la solicitud</h1>
 
                 <div class="mb-10">
-                    @livewire('solicitud.edit-component', compact('solicitud'))
+                    @livewire('imponente.solicitud-edit', compact('solicitud'))
         
                     <x-jet-section-border />
                 </div>
@@ -57,11 +57,11 @@
                     </div>
 
                     <div class="mb-10">
-                        @livewire('edit-identificacion', ['identificacion' => $solicitud->aval->identificacion])
+                        @livewire('identificacion-component', ['identificacion' => $solicitud->aval->identificacion])
                     </div>
 
                     <div class="mb-10">
-                        @livewire('edit-trabajo', ['trabajo' => $solicitud->aval->trabajo])
+                        @livewire('trabajo-component', ['trabajo' => $solicitud->aval->trabajo])
                         <x-jet-section-border />
                     </div>
 
