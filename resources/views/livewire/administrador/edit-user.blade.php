@@ -1,8 +1,10 @@
 <div>
     <button 
         class="btn btn-primary disabled:opacity-25"
-        wire:click="$set('open', true)"
-        wire:loading.attr="disabled" style="background-color:#0342cb">
+        wire:click="open"
+        wire:target="open"
+        wire:loading.attr="disabled"
+        style="background-color:#0342cb">
         Editar
     </button>
 
@@ -37,26 +39,60 @@
                 <x-jet-input-error for="password_confirmation" />
             </div>
 
-            <div class="mt-4">
+            <div  x-data="{ rol: @entangle('rol') }">
 
-                <x-jet-label value="Rol de usuario" class="mb-1" />
+                <div class="mt-4">
 
-                <label class="text-sm text-gray-700 ">
-                   <input class="mr-1" type="radio" name="rol" wire:model.defer="rol" value="imponente">
-                   Imponente
-                </label>
+                    <x-jet-label value="Rol de usuario" class="mb-1" />
 
-                <label class="text-sm text-gray-700 mx-3">
-                    <input class="mr-1" type="radio" name="rol" wire:model.defer="rol" value="ejecutivo">
-                    Ejecutivo
-                </label>
+                    <label class="text-sm text-gray-700 mx-3">
+                        <input class="mr-1" type="radio" name="rol" wire:model="rol" value="ejecutivo">
+                        Ejecutivo
+                    </label>
 
-                <label class="text-sm text-gray-700 ">
-                    <input class="mr-1" type="radio" name="rol" wire:model.defer="rol" value="administrador">
-                    Administrador
-                </label>
-           </div>
+                    <label class="text-sm text-gray-700 ">
+                        <input class="mr-1" type="radio" name="rol" wire:model="rol" value="administrador">
+                        Administrador
+                    </label>
 
+                    <label class="text-sm text-gray-700 ">
+                        <input class="mr-1" type="radio" name="rol" wire:model="rol" value="reportes">
+                        Reportes
+                    </label>
+                </div>
+
+                <div class="mt-4" 
+                    
+                    :class="{'hidden' : rol != 'ejecutivo' }">
+                
+                    <div wire:ignore>
+
+                        <label class="text-sm text-gray-700 ">
+                            Sucursales
+                        </label>
+                        <hr>
+                        
+                        <select
+                            
+                            style="width: 100%; display:block; height:4rem"
+                            wire:model="agencia_id"
+                            x-data
+                            wire:key="myIdentifierHere"
+                            x-ref="myIdentifierHere"
+                            x-init="$($refs.myIdentifierHere).select2();
+                                    $($refs.myIdentifierHere).on('change', function(e){
+                                        @this.set('agencia_id', e.target.value);
+                                    });"
+                            class="js-example-basic-single" 
+                            name="state">
+                            @foreach ($agencias as $agencia)
+                                <option value="{{$agencia->id}}">{{$agencia->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                </div>
+            </div>
         </x-slot>
 
         <x-slot name="footer">

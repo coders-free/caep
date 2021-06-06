@@ -15,7 +15,7 @@ class Users extends Component
 
     public $search, $user;
 
-    protected $listeners = ['render'];
+    protected $listeners = ['render', 'delete'];
 
     public function updatingSearch()
     {
@@ -30,8 +30,9 @@ class Users extends Component
     }
 
 
-    public function update()
+    public function delete(User $user)
     {
+        $user->delete();
     }
 
     public function render()

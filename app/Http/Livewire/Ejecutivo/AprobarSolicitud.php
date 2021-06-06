@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Ejecutivo;
 
 use App\Models\Solicitud;
 use Illuminate\Support\Facades\Mail;
@@ -40,6 +40,6 @@ class AprobarSolicitud extends Component
 
     public function render()
     {
-        return view('livewire.aprobar-solicitud');
+        return view('livewire.ejecutivo.aprobar-solicitud');
     }
 }

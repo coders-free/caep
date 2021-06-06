@@ -39,6 +39,7 @@
             </div>
 
             <div x-data="{ rol: @entangle('rol') }">
+                
                 <div class="mt-4">
 
                     <x-jet-label value="Rol de usuario" class="mb-1" />
@@ -52,6 +53,11 @@
                         <input class="mr-1" type="radio" name="rol" x-model="rol" value="administrador">
                         Administrador
                     </label>
+
+                    <label class="text-sm text-gray-700 ">
+                        <input class="mr-1" type="radio" name="rol" x-model="rol" value="reportes">
+                        Reportes
+                    </label>
                 </div>
 
                 <div class="mt-4" 
@@ -61,7 +67,7 @@
                     <div wire:ignore>
 
                         <label class="text-sm text-gray-700 ">
-                            Administrador
+                            Sucursales
                         </label>
 
                         

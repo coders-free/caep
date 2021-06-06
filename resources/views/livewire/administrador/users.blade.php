@@ -46,7 +46,7 @@
                     </thead>
                     <tbody class="bg-indigo-50 divide-y divide-gray-200">
                         @foreach ($users as $item)
-                            <tr>
+                            <tr id="{{$item->id}}">
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-900">
                                         {{ $item->id }}
@@ -77,6 +77,11 @@
 
                                         @livewire('administrador.edit-user', ['user' => $item], key($item->id))
 
+                                        <x-jet-danger-button
+                                            class="ml-2"
+                                            wire:click="$emit('deleteUser', {{$item->id}})">
+                                            Eliminar
+                                        </x-jet-danger-button>
                                     </div>
                                 </td>
 
@@ -99,4 +104,36 @@
             @endif
         </x-table-responsive>
     </div>
+
+    @push('script')
+        
+
+        <script>
+
+            Livewire.on('deleteUser', userId => {
+
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: "Una vez eliminado no podrás revertirlo",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, eliminar!',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    
+                    if (result.isConfirmed) {
+                        Livewire.emit('delete', userId);
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+            })
+        </script>
+        
+    @endpush
 </div>

@@ -42,6 +42,34 @@
             </div>
 
             <div class="mt-4">
+                <x-jet-label value="Region" />
+                <select wire:model="region_id" class="form-control w-full">
+                    <option value="" selected disabled>Seleccione una región</option>
+
+                    @foreach ($regiones as $region)
+
+                        <option value="{{$region->id}}">{{$region->name}}</option>
+                        
+                    @endforeach
+                </select>
+                <x-jet-input-error for="region_id" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label value="Comunas" />
+                <select wire:model="comuna_id" class="form-control w-full">
+                    <option value="" selected disabled>Seleccione una comuna</option>
+
+                    @foreach ($this->comunas as $comuna)
+
+                        <option value="{{$comuna->id}}">{{$comuna->name}}</option>
+                        
+                    @endforeach
+                </select>
+                <x-jet-input-error for="comuna_id" />
+            </div>
+
+            <div class="mt-4">
                 <x-jet-label value="Monto a solicitar" />
                 <x-jet-input wire:model.defer="monto" type="number" class="w-full" placeholder="Ingrese el monto a solicitar" />
                 <x-jet-input-error class="mt-1" for="monto" />

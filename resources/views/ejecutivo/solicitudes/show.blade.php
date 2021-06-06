@@ -93,15 +93,7 @@
 
         @endif
 
-        <section>
-            <h1 class="text-center text-2xl font-medium text-gray-700 mb-4">Aprobar solicitudes</h1>
-
-            <div class="mb-10">
-                @livewire('aprobar-solicitud', compact('solicitud'))
-                <x-jet-section-border />
-            </div>
-
-        </section>
+        
 
         <section>
             <h1 class="text-center text-2xl font-medium text-gray-700 mb-4">Notas de la solicitud</h1>
@@ -109,9 +101,19 @@
                 @livewire('solicitud-notes', compact('solicitud'))
             </div>
 
-            <div>
+            <div class="mb-10">
                 @livewire('bitacora', compact('solicitud'))
             </div>
+        </section>
+
+        <section>
+            <h1 class="text-center text-2xl font-medium text-gray-700 mb-4">Aprobar solicitudes</h1>
+
+            <div>
+                @livewire('ejecutivo.aprobar-solicitud', compact('solicitud'))
+                <x-jet-section-border />
+            </div>
+
         </section>
 
 

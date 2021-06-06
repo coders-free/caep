@@ -25,11 +25,6 @@ class CreateUser extends Component
         'password' => ['required', 'string', 'min:8', 'confirmed'],
     ];
 
-    public function render()
-    {
-        return view('livewire.administrador.create-user');
-    }
-
 
     public function create(){
 
@@ -55,6 +50,11 @@ class CreateUser extends Component
 
         $this->reset(['name', 'email', 'password', 'password_confirmation', 'open', 'rol']);
 
-        $this->emitTo('user-roles', 'render');
+        $this->emit('render');
+    }
+
+    public function render()
+    {
+        return view('livewire.administrador.create-user');
     }
 }
