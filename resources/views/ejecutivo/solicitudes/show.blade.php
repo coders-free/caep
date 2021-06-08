@@ -1,4 +1,4 @@
-<x-ejecutivo-layout>
+<x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
             Revisión de solicitud
@@ -119,4 +119,4 @@
 
     </div>
 
-</x-ejecutivo-layout>
+</x-app-layout>

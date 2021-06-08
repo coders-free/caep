@@ -58,7 +58,6 @@ class Solicitudes extends Component
 
 
 
-        return view('livewire.ejecutivo.solicitudes', compact('solicitudes', 'aprobados', 'rechazados'))
-            ->layout('layouts.ejecutivo');
+        return view('livewire.ejecutivo.solicitudes', compact('solicitudes', 'aprobados', 'rechazados'));
     }
 }

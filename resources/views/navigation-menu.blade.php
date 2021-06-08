@@ -13,22 +13,42 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('welcome') }}" :active="request()->routeIs('welcome')">
-                        Estado de créditos
-                    </x-jet-nav-link>
+
+                    @role('imponente')
+
+                        <x-jet-nav-link href="{{ route('welcome') }}" :active="request()->routeIs('welcome')">
+                            Estado de créditos
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ route('solicitudes.index') }}" :active="request()->routeIs('solicitudes.index')">
+                            Solicitudes
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ route('estatutos.index') }}" :active="request()->routeIs('estatutos.index')">
+                            Estatutos
+                        </x-jet-nav-link>
+
+                    @endrole
+
+                    @role('ejecutivo')
+
+                        <x-jet-nav-link href="{{ route('ejecutivo.index') }}" :active="request()->routeIs('ejecutivo.index')">
+                            Solicitudes pendientes
+                        </x-jet-nav-link>
+
+                    @endrole
+
+                    @role('administrador')
+                        <x-jet-nav-link href="{{ route('administrador.index') }}" :active="request()->routeIs('administrador.index')">
+                            Nuevos usuarios
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ route('administrador.prestamos') }}" :active="request()->routeIs('administrador.prestamos')">
+                            Prestamos
+                        </x-jet-nav-link>
+                    @endrole
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('solicitudes.index') }}" :active="request()->routeIs('solicitudes.index')">
-                        Solicitudes
-                    </x-jet-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('estatutos.index') }}" :active="request()->routeIs('estatutos.index')">
-                        Estatutos
-                    </x-jet-nav-link>
-                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -67,19 +87,11 @@
                                     {{ __('Profile') }}
                                 </x-jet-dropdown-link>
 
-                                <x-jet-dropdown-link href="{{ route('imponente') }}">
-                                    Imponente
-                                </x-jet-dropdown-link>
-
-                                {{-- <x-jet-dropdown-link href="{{ route('avales') }}">
-                                    Avales
-                                </x-jet-dropdown-link> --}}
-                                
-                                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                    <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
-                                        {{ __('API Tokens') }}
+                                @role('imponente')
+                                    <x-jet-dropdown-link href="{{ route('imponente') }}">
+                                        Imponente
                                     </x-jet-dropdown-link>
-                                @endif
+                                @endrole
 
                                 <div class="border-t border-gray-100"></div>
 
@@ -123,9 +135,35 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            {{-- <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-jet-responsive-nav-link> --}}
+            @role('imponente')
+                <x-jet-responsive-nav-link href="{{ route('welcome') }}" :active="request()->routeIs('welcome')">
+                    Estado de créditos
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ route('solicitudes.index') }}" :active="request()->routeIs('solicitudes.index')">
+                    Solicitudes
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ route('estatutos.index') }}" :active="request()->routeIs('estatutos.index')">
+                    Estatutos
+                </x-jet-responsive-nav-link>
+            @endrole
+
+            @role('ejecutivo')
+                <x-jet-responsive-nav-link href="{{ route('ejecutivo.index') }}" :active="request()->routeIs('ejecutivo.index')">
+                    Solicitudes pendientes
+                </x-jet-responsive-nav-link>
+            @endrole
+
+            @role('administrador')
+                <x-jet-responsive-nav-link href="{{ route('administrador.index') }}" :active="request()->routeIs('administrador.index')">
+                    Nuevos usuarios
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ route('administrador.prestamos') }}" :active="request()->routeIs('administrador.prestamos')">
+                    Prestamos
+                </x-jet-responsive-nav-link>
+            @endrole
         </div>
 
         <!-- Responsive Settings Options -->
@@ -151,12 +189,6 @@
                         {{ __('Profile') }}
                     </x-jet-responsive-nav-link>
 
-                    
-                    @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                        <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
-                            {{ __('API Tokens') }}
-                        </x-jet-responsive-nav-link>
-                    @endif
 
                     <!-- Authentication -->
                     <form method="POST" action="{{ route('logout') }}">
