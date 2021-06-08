@@ -18,12 +18,12 @@ class AdminSeeder extends Seeder
             'name' => 'Victor Arana Flores',
             'email' => 'admin@admin.com',
             'password' => bcrypt('12345678')
-        ])->syncRoles(['administrador']);
+        ])->assignRole('administrador');
 
         User::create([
             'name' => 'Victor Arana Flores',
             'email' => 'reportes@reportes.com',
             'password' => bcrypt('12345678')
-        ])->syncRoles(['reportes']);
+        ])->assignRole('reportes');
     }
 }

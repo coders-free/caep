@@ -1,2 +1,2 @@
-<x-reportes-layout>
-</x-reportes-layout>
+<x-app-layout>
+</x-app-layout>
