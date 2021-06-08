@@ -29,6 +29,7 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         
     </head>
     <body class="font-sans antialiased">
@@ -62,6 +63,7 @@
         @stack('modals')
 
         @stack('js')
+        @stack('script')
 
         
     </body>

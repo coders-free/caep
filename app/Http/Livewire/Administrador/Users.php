@@ -49,6 +49,6 @@ class Users extends Component
                     ->paginate(10);
      
 
-        return view('livewire.administrador.users', compact('users'))->layout('layouts.administrador');;
+        return view('livewire.administrador.users', compact('users'));
     }
 }

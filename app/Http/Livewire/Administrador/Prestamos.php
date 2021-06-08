@@ -65,7 +65,6 @@ class Prestamos extends Component
                             ->latest('id')
                             ->paginate(10);
 
-        return view('livewire.administrador.prestamos', compact('prestamos'))
-                    ->layout('layouts.administrador');
+        return view('livewire.administrador.prestamos', compact('prestamos'));
     }
 }
