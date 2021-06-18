@@ -52,7 +52,7 @@ class SolicitudCreate extends Component
 
             $solicitud = Solicitud::create([
                 'monto' => $this->monto,
-                'imponente_id' => $this->imponente->id,
+                'imponente_rut' => $this->imponente->rut,
                 'prestamo_id'  => 2
             ]);
 

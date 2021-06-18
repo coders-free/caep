@@ -24,22 +24,19 @@ class CreditoImport implements ToCollection, WithHeadingRow, WithCustomCsvSettin
 
         foreach($rows as $row){
 
-            /* $imponente = $imponentes->where('rut', $row['rut'])->first();
-            $prestamo = $prestamos->where('name', $row['tipo_prestamo'])->first(); */
-
-            /* if ($imponente && $prestamo) { */
             
-                $credito = Credito::create([
-                    'imponente_id' => $row['imponente_id'],
-                    'prestamo_id' => $row['prestamo_id'],
-                    'fecha_cierre' => Carbon::createFromFormat('d/m/Y', $row['fecha_cierre']),
-                    'monto_prestamo' => $row['monto_prestamo'],
-                    'numero_cuotas' => $row['numero_cuotas'],
-                    'monto_cuota' => $row['monto_cuotas'],
-                    'fecha_vencimiento' => Carbon::createFromFormat('d/m/Y', $row['fecha_cierre']),
-                ]);
+            
+            $credito = Credito::create([
+                'imponente_rut' => $row['rut'],
+                'prestamo_id' => $row['prestamo_id'],
+                'fecha_cierre' => Carbon::createFromFormat('d/m/Y', $row['fecha_cierre']),
+                'monto_prestamo' => $row['monto_prestamo'],
+                'numero_cuotas' => $row['numero_cuotas'],
+                'monto_cuota' => $row['monto_cuotas'],
+                'fecha_vencimiento' => Carbon::createFromFormat('d/m/Y', $row['fecha_cierre']),
+            ]);
 
-            /* } */
+            
             
         }
     }

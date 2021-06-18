@@ -18,10 +18,7 @@ class UsersImport implements ToCollection, WithHeadingRow, WithCustomCsvSettings
     public function collection(Collection $rows)
     {
 
-    
-
-        foreach ($rows as $row) 
-        {
+        foreach ($rows as $row) {
             $user = User::create([
                 'name' => $row['nombre'],
                 'email' => $row['correo'],
@@ -30,12 +27,12 @@ class UsersImport implements ToCollection, WithHeadingRow, WithCustomCsvSettings
 
 
             $user->assignRole('imponente');
-            
+
             $imponente = $user->imponente()->create([
-                        'rut' => $row['rut'],
-                        'fondos' => $row['fondos'],
-                    ]);
-            
+                'rut' => $row['rut'],
+                'fondos' => $row['fondos'],
+            ]);
+
             $imponente->identificacion()->create();
             $imponente->trabajo()->create();
             $imponente->bancario()->create();

@@ -16,7 +16,7 @@ class CreateIdentificacionesTable extends Migration
         Schema::create('identificaciones', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('identificacionable_id');
+            $table->string('identificacionable_id');
             $table->string('identificacionable_type');
 
             $table->string('direccion')->nullable();

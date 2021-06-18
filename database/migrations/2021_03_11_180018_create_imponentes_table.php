@@ -14,12 +14,12 @@ class CreateImponentesTable extends Migration
     public function up()
     {
         Schema::create('imponentes', function (Blueprint $table) {
-            $table->id();
+            
+            $table->string('rut');
+            $table->primary('rut');
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-
-            $table->string('rut');
 
             $table->bigInteger('fondos');
 

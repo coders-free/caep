@@ -31,7 +31,7 @@ class Solicitud extends Model
     //Relacion uno a muchos inversa
 
     public function imponente(){
-        return $this->belongsTo(Imponente::class);
+        return $this->belongsTo(Imponente::class, 'imponente_rut');
     }
 
     public function prestamo(){

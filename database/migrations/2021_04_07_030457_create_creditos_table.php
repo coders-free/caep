@@ -16,8 +16,8 @@ class CreateCreditosTable extends Migration
         Schema::create('creditos', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('imponente_id');
-            $table->foreign('imponente_id')->references('id')->on('imponentes');
+            $table->string('imponente_rut');
+            $table->foreign('imponente_rut')->references('rut')->on('imponentes');
 
             $table->unsignedBigInteger('prestamo_id');
             $table->foreign('prestamo_id')->references('id')->on('prestamos');

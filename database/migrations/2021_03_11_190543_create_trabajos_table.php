@@ -16,7 +16,7 @@ class CreateTrabajosTable extends Migration
         Schema::create('trabajos', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('trabajoable_id');
+            $table->string('trabajoable_id');
             $table->string('trabajoable_type');
 
             $table->string('reparticion')->nullable();

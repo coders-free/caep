@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Imponente extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'rut';
+    public $incrementing = false;
     
     //Relacion uno a uno inversa
 
@@ -17,13 +20,11 @@ class Imponente extends Model
 
     //Relacion uno a muhos
     public function creditos(){
-        return $this->hasMany(Credito::class);
+        return $this->hasMany(Credito::class, 'imponente_rut', 'rut');
     }
 
-    //Relacion uno a muchos inverso
-
     public function solicitudes(){
-        return $this->hasMany(Solicitud::class);
+        return $this->hasMany(Solicitud::class, 'imponente_rut', 'rut');
     }
 
     //Relacion uno a uno polimorfica

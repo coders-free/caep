@@ -17,8 +17,8 @@ class CreateSolicitudesTable extends Migration
         Schema::create('solicitudes', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('imponente_id');
-            $table->foreign('imponente_id')->references('id')->on('imponentes');
+            $table->string('imponente_rut');
+            $table->foreign('imponente_rut')->references('rut')->on('imponentes');
 
             $table->integer('monto')->nullable();
 

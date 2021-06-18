@@ -13,7 +13,7 @@ class Credito extends Model
 
     //relacion uno a muchos imponente
     public function imponente(){
-        return $this->belongsTo(Imponente::class);
+        return $this->belongsTo(Imponente::class, 'imponente_rut');
     }
 
     public function prestamo(){

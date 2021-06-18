@@ -16,7 +16,7 @@ class CreateBancariosTable extends Migration
         Schema::create('bancarios', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('bancarioable_id');
+            $table->string('bancarioable_id');
             $table->string('bancarioable_type');
 
             $table->unsignedBigInteger('envio_id')->nullable();
