@@ -88,14 +88,14 @@
                         </div>
 
                         <div class="grid grid-cols-2 gap-24 mt-6">
-                            <div class="flex items-center justify-between">
+                            <!--<div class="flex items-center justify-between">
 
                                 <h2 class="block uppercase tracking-wide text-gray-600 font-bold">Monto cuota:</h2>
 
                                 <p class="form-control-2 w-1/2 text-center">
                                     {{ monto_cuota($solicitud->monto, $solicitud->detalle_prestamo->cuotas) }}</p>
 
-                            </div>
+                            </div>-->
 
                             <div class="flex items-center justify-between">
 

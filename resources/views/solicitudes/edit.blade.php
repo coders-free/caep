@@ -32,7 +32,6 @@
                 </div>
             </section>
             
-            Hola mundo
 
             {{-- Información del imponente --}}
             <section>
