@@ -19,10 +19,10 @@ class CreateComunasTable extends Migration
             $table->string('name');
             
             $table->unsignedBigInteger('region_id');
-            $table->foreign('region_id')->references('id')->on('regiones');
+            $table->foreign('region_id')->references('id')->on('regiones')->onDelete('cascade');
 
             $table->unsignedBigInteger('agencia_id');
-            $table->foreign('agencia_id')->references('id')->on('agencias');
+            $table->foreign('agencia_id')->references('id')->on('agencias')->onDelete('cascade');
 
             $table->timestamps();
         });

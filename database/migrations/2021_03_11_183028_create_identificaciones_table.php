@@ -22,18 +22,18 @@ class CreateIdentificacionesTable extends Migration
             $table->string('direccion')->nullable();
 
             $table->unsignedBigInteger('region_id')->nullable();
-            $table->foreign('region_id')->references('id')->on('regiones');
+            $table->foreign('region_id')->references('id')->on('regiones')->onDelete('cascade');
 
             $table->unsignedBigInteger('comuna_id')->nullable();
-            $table->foreign('comuna_id')->references('id')->on('comunas');
+            $table->foreign('comuna_id')->references('id')->on('comunas')->onDelete('cascade');
 
             $table->dateTime('fecha_nacimiento')->nullable();
 
             $table->unsignedBigInteger('sexo_id')->nullable();
-            $table->foreign('sexo_id')->references('id')->on('sexos');
+            $table->foreign('sexo_id')->references('id')->on('sexos')->onDelete('cascade');
 
             $table->unsignedBigInteger('estado_civil_id')->nullable();
-            $table->foreign('estado_civil_id')->references('id')->on('estados_civiles');
+            $table->foreign('estado_civil_id')->references('id')->on('estados_civiles')->onDelete('cascade');
 
             $table->boolean('separacion')->nullable();
 

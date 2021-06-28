@@ -9,6 +9,8 @@ class Imponente extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['user_id', 'rut', 'fondos'];
+
     protected $primaryKey = 'rut';
     public $incrementing = false;
     

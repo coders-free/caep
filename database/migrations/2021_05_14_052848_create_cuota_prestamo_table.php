@@ -17,10 +17,10 @@ class CreateCuotaPrestamoTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('cuota_id');
-            $table->foreign('cuota_id')->references('id')->on('cuotas');
+            $table->foreign('cuota_id')->references('id')->on('cuotas')->onDelete('cascade');
 
             $table->unsignedBigInteger('prestamo_id');
-            $table->foreign('prestamo_id')->references('id')->on('prestamos');
+            $table->foreign('prestamo_id')->references('id')->on('prestamos')->onDelete('cascade');
 
             $table->timestamps();
         });

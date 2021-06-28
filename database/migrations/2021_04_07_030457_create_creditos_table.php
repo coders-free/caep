@@ -17,10 +17,10 @@ class CreateCreditosTable extends Migration
             $table->id();
 
             $table->string('imponente_rut');
-            $table->foreign('imponente_rut')->references('rut')->on('imponentes');
+            $table->foreign('imponente_rut')->references('rut')->on('imponentes')->onDelete('cascade');
 
             $table->unsignedBigInteger('prestamo_id');
-            $table->foreign('prestamo_id')->references('id')->on('prestamos');
+            $table->foreign('prestamo_id')->references('id')->on('prestamos')->onDelete('cascade');
 
             $table->dateTime('fecha_cierre');
 

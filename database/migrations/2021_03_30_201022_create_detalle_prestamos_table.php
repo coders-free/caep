@@ -21,7 +21,7 @@ class CreateDetallePrestamosTable extends Migration
             $table->dateTime('fecha_vencimiento');
 
             $table->unsignedBigInteger('solicitud_id');
-            $table->foreign('solicitud_id')->references('id')->on('solicitudes');
+            $table->foreign('solicitud_id')->references('id')->on('solicitudes')->onDelete('cascade');
 
             $table->timestamps();
         });

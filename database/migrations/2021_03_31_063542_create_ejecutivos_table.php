@@ -20,7 +20,7 @@ class CreateEjecutivosTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->unsignedBigInteger('agencia_id');
-            $table->foreign('agencia_id')->references('id')->on('agencias');
+            $table->foreign('agencia_id')->references('id')->on('agencias')->onDelete('cascade');
 
             $table->timestamps();
         });

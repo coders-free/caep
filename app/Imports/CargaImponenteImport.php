@@ -20,11 +20,13 @@ class CargaImponenteImport implements ToCollection, WithHeadingRow, WithCustomCs
 
             $imponente = Imponente::where('rut', $row['rut'])->first();
 
-            if ($row['accion'] = 'N') {
+            if ($row['accion'] == 'N') {
 
                 if ($imponente) {
 
-                    $imponente->user->update([
+                    $user = $imponente->user;
+
+                    $user->update([
                         'name' => $row['nombre'],
                     ]);
 
@@ -39,14 +41,15 @@ class CargaImponenteImport implements ToCollection, WithHeadingRow, WithCustomCs
                         'email' => $row['correo'],
                         'password' => $row['clave_web'],
                     ]);
-
+        
+        
                     $user->assignRole('imponente');
-
+        
                     $imponente = $user->imponente()->create([
                         'rut' => $row['rut'],
                         'fondos' => $row['fondos'],
                     ]);
-
+        
                     $imponente->identificacion()->create();
                     $imponente->trabajo()->create();
                     $imponente->bancario()->create();
@@ -56,7 +59,17 @@ class CargaImponenteImport implements ToCollection, WithHeadingRow, WithCustomCs
             }else{
                 
                 if ($imponente) {
-                    $imponente->user->delete();
+
+                    $identificacion = $imponente->identificacion;
+                    $trabajo = $imponente->trabajo;
+                    $bancario = $imponente->bancario;
+                    $user = $imponente->user;
+
+                    $identificacion->delete();
+                    $trabajo->delete();
+                    $bancario->delete();
+                    $user->delete();
+
                 }
             }
 

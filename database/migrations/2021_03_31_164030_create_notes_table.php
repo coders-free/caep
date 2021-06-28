@@ -19,7 +19,7 @@ class CreateNotesTable extends Migration
             $table->string('name');
             
             $table->unsignedBigInteger('solicitud_id');
-            $table->foreign('solicitud_id')->references('id')->on('solicitudes');
+            $table->foreign('solicitud_id')->references('id')->on('solicitudes')->onDelete('cascade');
 
             $table->timestamps();
         });
