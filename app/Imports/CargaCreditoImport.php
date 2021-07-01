@@ -25,18 +25,27 @@ class CargaCreditoImport implements ToCollection, WithHeadingRow, WithCustomCsvS
 
             if($imponente){
                 Credito::updateOrCreate([
-                    'imponente_rut' => $row['rut'],
+                    'imponente_rut' => $imponente->rut,
                     'prestamo_id' => $prestamo->id,
                     'fecha_vencimiento' => $row['fecha_vencimiento']
                 ],[
-                    'imponente_rut' => $row['rut'],
+                    'imponente_rut' => $imponente->rut,
                     'prestamo_id' => $prestamo->id,
                     'fecha_cierre' => Carbon::createFromFormat('d/m/Y', $row['fecha_cierre']),
-                    'monto_prestamo' => $row['monto_prestamo'],
-                    'numero_cuotas' => $row['numero_cuotas'],
-                    'monto_cuota' => $row['monto_cuotas'],
+                    'monto_prestamo' => intval($row['monto_prestamo']),
+                    'numero_cuotas' => intval($row['numero_cuotas']),
+                    'monto_cuota' => intval($row['monto_cuotas']),
                     'fecha_vencimiento' => $row['fecha_vencimiento']
-                ]);          
+                ]);
+
+                /* $credito->update([
+                    'prestamo_id' => $prestamo->id,
+                    'fecha_cierre' => Carbon::createFromFormat('d/m/Y', $row['fecha_cierre']),
+                    'monto_prestamo' => round($row['monto_prestamo']),
+                    'numero_cuotas' => round($row['numero_cuotas']),
+                    'monto_cuota' => round($row['monto_cuotas']),
+                    'fecha_vencimiento' => $row['fecha_vencimiento']
+                ]); */
             }
         }
     }

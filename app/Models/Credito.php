@@ -9,6 +9,8 @@ class Credito extends Model
 {
     use HasFactory;
 
+    protected $dates = ['fecha_cierre'];
+
     protected $guarded = ['created_at', 'updated_at'];
 
     //relacion uno a muchos imponente
