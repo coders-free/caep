@@ -5,11 +5,24 @@ use App\Http\Controllers\Administrador\HomeController;
 
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\CargaImponenteImport;
+use App\Imports\CargaCreditoImport;
 
+use Illuminate\Support\Facades\Storage;
 
 Route::get('carga/imponentes', function () {
-    //$name = 'Acceso FTP/Proveedores/ma/Repositorios/' . now()->format('Ymd') . "_MACKENNA_CARGARIMPONENTES.csv";
+
+    $fecha_actual = now()->format('Ymd');
+
+    $file_imponente = 'Acceso FTP/Proveedores/ma/Repositorios/' . $fecha_actual . "_MACKENNA_CARGARIMPONENTES.csv";
+    $file_credito = 'Acceso FTP/Proveedores/ma/Repositorios/' . $fecha_actual .'_MACKENNA_ESTADOCUENTA.csv';
     
-    Excel::import(new CargaImponenteImport, 'Acceso FTP/Proveedores/ma/Repositorios/20210616_MACKENNA_CARGARIMPONENTES.csv', 'ftp');
+    if (Storage::disk('ftp')->exists($file_imponente)) {
+        Excel::import(new CargaImponenteImport, $file_imponente, 'ftp');
+    }
+
+    if (Storage::disk('ftp')->exists($file_credito)) {
+        Excel::import(new CargaCreditoImport, $file_credito, 'ftp');
+    }
+
     return "Carga completa";
 });

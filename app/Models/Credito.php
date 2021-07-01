@@ -9,7 +9,7 @@ class Credito extends Model
 {
     use HasFactory;
 
-    protected $dates = ['fecha_cierre', 'fecha_vencimiento'];
+    protected $guarded = ['created_at', 'updated_at'];
 
     //relacion uno a muchos imponente
     public function imponente(){

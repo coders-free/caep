@@ -88,7 +88,7 @@
 
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-600">
-                                        {{$credito->fecha_vencimiento->format('d/m/Y')}}
+                                        {{$credito->fecha_vencimiento}}
                                     </div>
                                 </td>
                             </tr>

@@ -30,7 +30,7 @@ class CreateCreditosTable extends Migration
 
             $table->BigInteger('monto_cuota');
 
-            $table->dateTime('fecha_vencimiento');
+            $table->string('fecha_vencimiento');
 
             $table->timestamps();
         });

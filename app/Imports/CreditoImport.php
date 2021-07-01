@@ -3,7 +3,6 @@
 namespace App\Imports;
 
 use App\Models\Credito;
-use App\Models\Imponente;
 use App\Models\Prestamo;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
@@ -19,25 +18,17 @@ class CreditoImport implements ToCollection, WithHeadingRow, WithCustomCsvSettin
     public function collection(Collection $rows)
     {
 
-        $imponentes = Imponente::all();
-        $prestamos = Prestamo::all();
-
         foreach($rows as $row){
 
-            
-            
-            $credito = Credito::create([
+            Credito::create([
                 'imponente_rut' => $row['rut'],
                 'prestamo_id' => $row['prestamo_id'],
                 'fecha_cierre' => Carbon::createFromFormat('d/m/Y', $row['fecha_cierre']),
                 'monto_prestamo' => $row['monto_prestamo'],
                 'numero_cuotas' => $row['numero_cuotas'],
                 'monto_cuota' => $row['monto_cuotas'],
-                'fecha_vencimiento' => Carbon::createFromFormat('d/m/Y', $row['fecha_cierre']),
+                'fecha_vencimiento' => $row['fecha_vencimiento']
             ]);
-
-            
-            
         }
     }
 
