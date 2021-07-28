@@ -19,7 +19,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\export::class
     ];
 
     /**
@@ -46,6 +46,8 @@ class Kernel extends ConsoleKernel
             }
 
         })->daily();
+
+        $schedule->command('command:export')->everyMinute();
     }
 
     /**

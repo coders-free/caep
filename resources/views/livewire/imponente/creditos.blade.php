@@ -7,7 +7,13 @@
     </x-slot>
     
     <div class="container py-12">
+        <div class=" text-center">
+
+            <h1 class="text-center text-red-600">LO INVITAMOS A ACTUALIZAR SUS DATOS, INGRESE <a href="/imponente">AQUÍ</a></h1>
+            
+        </div>
         <x-table-responsive>
+            
             <div class="px-6 py-4 flex items-center">
 
                 <x-jet-input type="text" class="mt-1 block flex-1" wire:model="search" placeholder="Escriba algo" />

@@ -20,9 +20,9 @@
                             Estado de créditos
                         </x-jet-nav-link>
 
-                        <x-jet-nav-link href="{{ route('solicitudes.index') }}" :active="request()->routeIs('solicitudes.index')">
+                        {{--<x-jet-nav-link href="{{ route('solicitudes.index') }}" :active="request()->routeIs('solicitudes.index')">
                             Solicitudes
-                        </x-jet-nav-link>
+                        </x-jet-nav-link>--}}
 
                         <x-jet-nav-link href="{{ route('estatutos.index') }}" :active="request()->routeIs('estatutos.index')">
                             Estatutos
@@ -140,9 +140,9 @@
                     Estado de créditos
                 </x-jet-responsive-nav-link>
 
-                <x-jet-responsive-nav-link href="{{ route('solicitudes.index') }}" :active="request()->routeIs('solicitudes.index')">
+                {{--<x-jet-responsive-nav-link href="{{ route('solicitudes.index') }}" :active="request()->routeIs('solicitudes.index')">
                     Solicitudes
-                </x-jet-responsive-nav-link>
+                </x-jet-responsive-nav-link>--}}
 
                 <x-jet-responsive-nav-link href="{{ route('estatutos.index') }}" :active="request()->routeIs('estatutos.index')">
                     Estatutos
