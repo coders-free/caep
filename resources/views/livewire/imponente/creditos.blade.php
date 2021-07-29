@@ -39,6 +39,11 @@
                                 class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                 Monto prestado
                             </th>
+
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Saldo
+                            </th>
                             
                            
                             <th scope="col"
@@ -77,6 +82,12 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-600">
                                         {{moneda_chilena($credito->monto_prestamo)}}
+                                    </div>
+                                </td>
+
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-600">
+                                        {{moneda_chilena($credito->saldo)}}
                                     </div>
                                 </td>
 

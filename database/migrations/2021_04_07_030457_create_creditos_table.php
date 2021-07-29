@@ -25,6 +25,8 @@ class CreateCreditosTable extends Migration
             $table->unsignedBigInteger('prestamo_id');
             $table->foreign('prestamo_id')->references('id')->on('prestamos')->onDelete('cascade');
 
+            $table->bigInteger('saldo')->nullable();
+
             $table->dateTime('fecha_cierre');
 
             $table->bigInteger('monto_prestamo');

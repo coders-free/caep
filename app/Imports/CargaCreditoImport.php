@@ -31,6 +31,7 @@ class CargaCreditoImport implements ToCollection, WithHeadingRow, WithCustomCsvS
                 ],[
                     'imponente_rut' => $imponente->rut,
                     'prestamo_id' => $prestamo->id,
+                    'saldo' => $row['saldo'],
                     'fecha_cierre' => Carbon::createFromFormat('d/m/Y', $row['fecha_cierre']),
                     'monto_prestamo' => intval($row['monto_prestamo']),
                     'numero_cuotas' => intval($row['numero_cuotas']),

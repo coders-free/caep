@@ -23,6 +23,7 @@ class CreditoImport implements ToCollection, WithHeadingRow, WithCustomCsvSettin
             Credito::create([
                 'imponente_rut' => $row['rut'],
                 'prestamo_id' => $row['prestamo_id'],
+                'saldo' => $row['saldo'],
                 'fecha_cierre' => Carbon::createFromFormat('d/m/Y', $row['fecha_cierre']),
                 'monto_prestamo' => $row['monto_prestamo'],
                 'numero_cuotas' => $row['numero_cuotas'],
