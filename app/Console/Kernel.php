@@ -8,6 +8,7 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\CargaImponenteImport;
 use App\Imports\CargaCreditoImport;
+use App\Imports\CargaCierreImport;
 
 use Illuminate\Support\Facades\Storage;
 
@@ -36,6 +37,7 @@ class Kernel extends ConsoleKernel
 
             $file_imponente = 'Acceso FTP/Proveedores/ma/Repositorios/' . $fecha_actual . "_MACKENNA_CARGARIMPONENTES.csv";
             $file_credito = 'Acceso FTP/Proveedores/ma/Repositorios/' . $fecha_actual . '_MACKENNA_ESTADOCUENTA.csv';
+            $file_carga_cierre = 'Acceso FTP/Proveedores/ma/Repositorios/' . $fecha_actual . '_MACKENNA_ESTADOCUENTA-CIERRE.csv';
 
             if (Storage::disk('ftp')->exists($file_imponente)) {
                 Excel::import(new CargaImponenteImport, $file_imponente, 'ftp');
@@ -43,6 +45,10 @@ class Kernel extends ConsoleKernel
         
             if (Storage::disk('ftp')->exists($file_credito)) {
                 Excel::import(new CargaCreditoImport, $file_credito, 'ftp');
+            }
+
+            if (Storage::disk('ftp')->exists($file_carga_cierre)) {
+                Excel::import(new CargaCierreImport, $file_carga_cierre, 'ftp');
             }
 
         })->daily();

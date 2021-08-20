@@ -56,7 +56,7 @@ return [
             'driver' => 'ftp',
             'host' => '200.29.133.222',
             'username' => 'ma.caep',
-            'password' => 'ma.2021',
+            'password' => 'c12pftp.',
         ],
 
     ],
